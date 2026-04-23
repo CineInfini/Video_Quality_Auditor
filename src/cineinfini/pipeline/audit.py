@@ -266,3 +266,203 @@ def adaptive_multi_stage_audit(video_path, force_full_video=False):
     # but uses the same modular functions.
     # You can adapt the earlier logic using the new structure.
     pass
+
+
+# -------------------------------------------------------------------
+# Optimisation des poids composites (identique à l'original)
+# -------------------------------------------------------------------
+def optimise_composite_weights(gates, thresholds, base_weights=None):
+    from ..core.metrics import DEFAULT_COMPOSITE_WEIGHTS
+    if base_weights is None:
+        base_weights = DEFAULT_COMPOSITE_WEIGHTS.copy()
+    exceed_counts = {metric: 0 for metric in base_weights.keys()}
+    total_shots = len(gates)
+    for g in gates.values():
+        if g.get("motion_peak_div") and g["motion_peak_div"] > thresholds.get("motion", 25.0):
+            exceed_counts["motion_mean"] += 1
+        if g.get("ssim3d_self") and g["ssim3d_self"] < thresholds.get("ssim3d", 0.45):
+            exceed_counts["ssim_mean"] += 1
+        if g.get("flicker") and g["flicker"] > thresholds.get("flicker", 0.1):
+            exceed_counts["flicker_mean"] += 1
+        if g.get("identity_intra") and g["identity_intra"] > thresholds.get("identity_drift", 0.6):
+            exceed_counts["identity_mean"] += 1
+        if g.get("ssim_long_range") and g["ssim_long_range"] < thresholds.get("ssim_long_range", 0.45):
+            exceed_counts["ssim_lr_mean"] += 1
+        if g.get("clip_temp_consistency") and g["clip_temp_consistency"] < thresholds.get("clip_temp", 0.25):
+            exceed_counts["clip_temp_mean"] += 1
+    adjusted_weights = base_weights.copy()
+    for metric, count in exceed_counts.items():
+        if count > total_shots * 0.3:
+            factor = 1.0 + (count / total_shots)
+            adjusted_weights[metric] = base_weights[metric] * factor
+    return adjusted_weights
+
+# -------------------------------------------------------------------
+# Pré‑analyse rapide (generate_AuditWorkflow) – version simplifiée
+# -------------------------------------------------------------------
+def generate_AuditWorkflow(video_path, config=None, force_full_video=False):
+    import time
+    start_total = time.time()
+    if config is None:
+        config = CONFIG
+    video_path = Path(video_path)
+    print(f"\n🔍 PRE‑ANALYSIS (fast) for {video_path.name}")
+    # Récupérer les infos de la vidéo
+    cap = cv2.VideoCapture(str(video_path))
+    if not cap.isOpened():
+        raise ValueError(f"Cannot open video: {video_path}")
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    duration = total_frames / fps if fps > 0 else 60.0
+    cap.release()
+    print(f"   [1] Video info: {duration:.1f}s, {fps:.2f}fps, {total_frames} frames")
+    # Échantillonner 15 frames max (toutes les 3 secondes environ)
+    sample_interval = max(1, int(fps * 3))
+    low_res = (160, 90)
+    frames = []
+    cap = cv2.VideoCapture(str(video_path))
+    idx = 0
+    while idx < total_frames and len(frames) < 15:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, idx)
+        ret, frame = cap.read()
+        if ret:
+            small = cv2.resize(frame, low_res)
+            frames.append(small)
+        idx += sample_interval
+    cap.release()
+    print(f"   [2] Sampled {len(frames)} low‑res frames")
+    # Détection faciale rapide
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    face_detected = False
+    for frame in frames[:8]:
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        faces = face_cascade.detectMultiScale(gray, 1.1, 5, minSize=(15,15))
+        if len(faces) > 0:
+            face_detected = True
+            break
+    print(f"   [3] Face detection: {'Yes' if face_detected else 'No'}")
+    # Estimation du mouvement par différence absolue moyenne
+    motion_scores = []
+    for i in range(len(frames)-1):
+        gray1 = cv2.cvtColor(frames[i], cv2.COLOR_BGR2GRAY).astype(np.float32)
+        gray2 = cv2.cvtColor(frames[i+1], cv2.COLOR_BGR2GRAY).astype(np.float32)
+        diff = np.mean(np.abs(gray2 - gray1))
+        motion_scores.append(diff)
+    avg_motion = np.mean(motion_scores) if motion_scores else 0.0
+    avg_motion_norm = avg_motion / 2.55
+    print(f"   [4] Average motion (MAD): {avg_motion:.1f} → normalized {avg_motion_norm:.1f}")
+    animal_detected = (not face_detected) and (avg_motion_norm > 15.0)
+    print(f"   [5] Animals suspected: {'Yes' if animal_detected else 'No'}")
+    need_stage2 = (duration > 30 and avg_motion_norm > 15) or animal_detected or (not face_detected and avg_motion_norm > 20)
+    print(f"   [6] Second stage recommended: {'Yes' if need_stage2 else 'No'}")
+    # Définir la durée à analyser
+    if force_full_video:
+        max_duration = min(config.get("max_duration_s", 1000), duration)
+    else:
+        max_duration = min(config.get("max_duration_s", 60), duration)
+    print(f"   [7] Analysed duration: {max_duration:.1f}s")
+    # Paramètres de stage1
+    stage1_params = {
+        "max_duration_s": max_duration,
+        "shot_threshold": 0.2,
+        "min_shot_duration_s": 0.5,
+        "downsample_to": (320, 180),
+        "n_frames_per_shot": 16,
+        "frame_resize": (320, 180),
+        "embedder": "arcface_onnx",
+        "semantic_scorer": "clip",
+        "thresholds": config.get("thresholds", {}).copy(),
+    }
+    if avg_motion_norm > 30:
+        stage1_params["thresholds"]["motion"] = 35.0
+    elif avg_motion_norm < 8:
+        stage1_params["thresholds"]["motion"] = 20.0
+    else:
+        stage1_params["thresholds"]["motion"] = 25.0
+    if not face_detected:
+        stage1_params["thresholds"]["identity_drift"] = 100.0
+    enable_animal = animal_detected and config.get("enable_animal_face_detection", False)
+    face_backend = "haar+yunet" if not enable_animal else "animal_pretrained"
+    prestage_summary = f"""
+Fast pre‑analysis summary for {video_path.name}:
+- Duration: {duration:.1f}s | Motion: {avg_motion_norm:.1f} | Faces: {'Yes' if face_detected else 'No'} | Animals: {'Yes' if animal_detected else 'No'}
+- Stage2: {'Yes' if need_stage2 else 'No'} | Face backend: {face_backend}
+- Adjusted motion threshold: {stage1_params['thresholds'].get('motion', 25.0)}
+"""
+    print(prestage_summary)
+    print(f"   ⏱️ Pre‑analysis total time: {time.time()-start_total:.2f}s\n")
+    return {
+        "stage1_params": stage1_params,
+        "stage2_auto": need_stage2,
+        "enable_animal_face_detection": enable_animal,
+        "face_detector_backend": face_backend,
+        "prestage_summary": prestage_summary
+    }
+
+# -------------------------------------------------------------------
+# Fonction adaptive_multi_stage_audit (orchestrateur)
+# -------------------------------------------------------------------
+def adaptive_multi_stage_audit(video_path, force_full_video=False):
+    total_start = time.time()
+    video_name = Path(video_path).stem
+    print(f"\n{'='*60}")
+    print(f"🎬 ADAPTIVE AUDIT START: {video_name}")
+    print(f"{'='*60}")
+    # Pré‑analyse
+    workflow = generate_AuditWorkflow(video_path, config=CONFIG, force_full_video=force_full_video)
+    if workflow["enable_animal_face_detection"]:
+        CONFIG["enable_animal_face_detection"] = True
+        print("   🐾 Animal face detection ENABLED")
+    # Stage 1
+    stage1_params = workflow["stage1_params"]
+    print(f"\n📊 STAGE 1 AUDIT (first pass) – {video_name}")
+    stage1_start = time.time()
+    metrics_data1, report_dir1 = audit_video(video_path, video_params=stage1_params)
+    stage1_duration = time.time() - stage1_start
+    print(f"   ✅ Stage 1 completed in {stage1_duration:.1f}s")
+    json_path1 = Path(report_dir1) / "data.json"
+    if not json_path1.exists():
+        print(f"   ⚠️ data.json missing. Skipping Stage 2.")
+        final_dir = report_dir1
+    elif workflow["stage2_auto"]:
+        print(f"\n📈 STAGE 2 AUDIT (optimised) – {video_name}")
+        stage2_start = time.time()
+        with open(json_path1, 'r') as f:
+            data1 = json.load(f)
+        gates = data1["gates"]
+        thresholds = stage1_params["thresholds"]
+        optimised_weights = optimise_composite_weights(gates, thresholds)
+        weights_path = Path(report_dir1) / "optimised_weights.json"
+        with open(weights_path, 'w') as f:
+            json.dump(optimised_weights, f, indent=2)
+        print(f"   ⚙️ Optimised composite weights computed")
+        # Ajustement éventuel des paramètres pour Stage 2
+        stage2_params = stage1_params.copy()
+        motion_exceeds = sum(1 for g in gates.values() if g.get("motion_peak_div", 0) > thresholds.get("motion", 25.0))
+        if motion_exceeds / len(gates) > 0.3:
+            old_dur = stage2_params["max_duration_s"]
+            stage2_params["max_duration_s"] = max(30, int(stage2_params["max_duration_s"] * 0.8))
+            print(f"   🔧 Adjusted max_duration_s: {old_dur} → {stage2_params['max_duration_s']} (high motion)")
+        metrics_data2, report_dir2 = audit_video(video_path, video_params=stage2_params)
+        # Recalculer les scores composites avec les nouveaux poids
+        with open(Path(report_dir2) / "data.json", 'r') as f:
+            data2 = json.load(f)
+        from ..core.metrics import recompute_composite_scores  # à définir si nécessaire
+        # Si la fonction n'existe pas, on peut recalculer ici
+        for g in data2["gates"].values():
+            mets = {k: g.get(k.rstrip("_mean"), 0) for k in optimised_weights.keys()}
+            g["composite"] = compute_composite_score(mets, optimised_weights)
+        with open(Path(report_dir2) / "data.json", 'w') as f:
+            json.dump(data2, f, indent=2)
+        stage2_duration = time.time() - stage2_start
+        print(f"   ✅ Stage 2 completed in {stage2_duration:.1f}s")
+        final_dir = report_dir2
+    else:
+        final_dir = report_dir1
+    total_duration = time.time() - total_start
+    print(f"\n{'='*60}")
+    print(f"🏁 AUDIT COMPLETED: {video_name}")
+    print(f"   Total time: {total_duration:.1f}s ({total_duration/60:.1f} minutes)")
+    print(f"   Report saved to: {final_dir}")
+    print(f"{'='*60}\n")
+    return final_dir
