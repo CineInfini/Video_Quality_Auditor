@@ -1,0 +1,47 @@
+# CineInfini default configuration
+video:
+  max_duration_s: 60
+  downsample_to: [320, 180]
+  n_frames_per_shot: 16
+  frame_resize: [320, 180]
+  shot_detection:
+    method: histogram
+    adaptive_threshold: true
+    threshold_percentile: 85
+    shot_threshold: 0.2
+    min_shot_duration_s: 0.5
+
+metrics:
+  thresholds:
+    motion: 25.0
+    ssim3d: 0.45
+    flicker: 0.1
+    identity_drift: 0.6
+    ssim_long_range: 0.45
+    clip_temp: 0.25
+    flicker_hf: 0.01
+    narrative_coherence: 0.7
+  composite_weights:
+    motion_mean: -1.0
+    ssim_mean: 1.0
+    flicker_mean: -1.0
+    identity_mean: -1.0
+    ssim_lr_mean: 1.0
+    clip_temp_mean: 1.0
+
+processing:
+  parallel_shots: true
+  max_workers: 4
+  use_gpu: true
+  gpu_device: cuda  # auto-detected if None
+
+reports:
+  intra_subdir: intra
+  inter_subdir: inter
+  benchmark_subdir: benchmark
+  figures_format: png
+  create_html: true
+
+logging:
+  level: INFO
+  file: cineinfini.log
