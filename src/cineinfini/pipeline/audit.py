@@ -277,6 +277,12 @@ def audit_video(video_path, video_params=None, force_full_video=False):
     t0 = time.time()
     try:
         generate_intra_report(video_name, metrics_data, REPORTS_DIR / "intra", params["thresholds"])
+        # Clean None values before dashboard
+        for shot in metrics_data["gates"].values():
+            for key in ["motion_peak_div", "ssim3d_self", "flicker", "identity_intra",
+                         "ssim_long_range", "flicker_hf_var", "clip_temp_consistency"]:
+                if shot.get(key) is None:
+                    shot[key] = 0.0
         dashboard_time = time.time() - t0
         print(f"  [TIMING] Dashboard generation: {dashboard_time:.2f}s")
     except Exception as e:
@@ -332,3 +338,25 @@ def adaptive_multi_stage_audit(video_path, force_full_video=False):
     print(f"\n🏁 ADAPTIVE AUDIT COMPLETED in {total_duration:.1f}s ({total_duration/60:.2f} minutes)")
     print(f"   Report saved to: {report_dir}\n")
     return metrics, report_dir
+
+def generate_synthetic_video(name, duration_s, fps, resolution, pattern="circle"):
+    import cv2
+    import numpy as np
+    from pathlib import Path
+    out_path = Path(name)
+    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+    out = cv2.VideoWriter(str(out_path), fourcc, fps, resolution)
+    w, h = resolution
+    for t in range(int(duration_s * fps)):
+        frame = np.zeros((h, w, 3), dtype=np.uint8)
+        if pattern == "circle":
+            center = (int(w//2 + 100*np.sin(t*0.1)), int(h//2 + 50*np.cos(t*0.2)))
+            cv2.circle(frame, center, 30, (0,255,0), -1)
+        elif pattern == "color_switch":
+            color = [(255,0,0), (0,255,0), (0,0,255)][(t//30) % 3]
+            frame[:] = color
+        elif pattern == "noise":
+            frame = np.random.randint(0, 50, (h, w, 3), dtype=np.uint8) + 100
+        out.write(frame)
+    out.release()
+    return out_path

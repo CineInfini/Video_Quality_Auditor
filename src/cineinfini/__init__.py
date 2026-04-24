@@ -1,22 +1,42 @@
-"""CineInfini – Video Quality Audit Pipeline"""
-
-__version__ = "0.1.1"  # incrémenter
+"""
+CineInfini – Video Quality Audit Pipeline
+"""
+__version__ = "0.1.2"
 __author__ = "Salah-Eddine BENBRAHIM"
 __license__ = "MIT"
 
-from .pipeline.audit import audit_video, adaptive_multi_stage_audit
+from .pipeline.audit import (
+    audit_video,
+    adaptive_multi_stage_audit,
+    generate_synthetic_video,
+    CONFIG,
+    set_global_paths,
+)
 from .io.report import generate_intra_report, generate_inter_report
 from .core.metrics import compute_composite_score, recompute_composite_scores
-from .core.face_detection import CascadeFaceDetector, ArcFaceEmbedder, identity_within_shot, set_models_dir
-from .core.embedding import CLIPSemanticScorer, clip_semantic_consistency, load_dinov2, get_dinov2
-from .core.coherence import compute_inter_shot_coherence, compute_narrative_coherence
+from .core.embedding import load_dinov2, get_dinov2
+from .compare import compare_videos
+from .benchmark import (
+    audit_multiple_videos,
+    run_benchmark,
+    generate_test_dataset,
+    benchmark_models,
+    compare_multiple_videos,
+)
+
+def get_config():
+    return CONFIG.copy()
+
+def set_config(key: str, value):
+    if key in CONFIG:
+        CONFIG[key] = value
+    else:
+        raise KeyError(f"Unknown configuration key: {key}")
 
 __all__ = [
-    "__version__", "__author__", "__license__",
-    "audit_video", "adaptive_multi_stage_audit",
-    "generate_intra_report", "generate_inter_report",
-    "compute_composite_score", "recompute_composite_scores",
-    "CascadeFaceDetector", "ArcFaceEmbedder", "identity_within_shot", "set_models_dir",
-    "CLIPSemanticScorer", "clip_semantic_consistency", "load_dinov2", "get_dinov2",
-    "compute_inter_shot_coherence", "compute_narrative_coherence",
+    "audit_video", "adaptive_multi_stage_audit", "generate_synthetic_video",
+    "generate_intra_report", "generate_inter_report", "get_config", "set_config",
+    "set_global_paths", "compute_composite_score", "recompute_composite_scores",
+    "load_dinov2", "get_dinov2", "CONFIG", "compare_videos", "audit_multiple_videos",
+    "run_benchmark", "generate_test_dataset", "benchmark_models", "compare_multiple_videos",
 ]
