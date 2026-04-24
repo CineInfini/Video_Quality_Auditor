@@ -11,9 +11,7 @@ from skimage.metrics import structural_similarity as ssim_2d
 def optical_flow_farneback(frame1, frame2):
     gray1 = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
     gray2 = cv2.cvtColor(frame2, cv2.COLOR_BGR2GRAY)
-    flow = cv2.calcOpticalFlowFarneback(
-        gray1, gray2, None, 0.5, 3, 15, 3, 5, 1.2, 0
-    )
+    flow = cv2.calcOpticalFlowFarneback(gray1, gray2, None, 0.5, 3, 15, 3, 5, 1.2, 0)
     return flow
 
 
@@ -52,9 +50,7 @@ def ssim_3d_self_shifted(vol, block_size=7):
         if np.var(vol[i]) == 0 or np.var(vol[i + 1]) == 0:
             vals.append(1.0)
         else:
-            vals.append(
-                ssim_2d(vol[i], vol[i + 1], data_range=vol.max() - vol.min())
-            )
+            vals.append(ssim_2d(vol[i], vol[i + 1], data_range=vol.max() - vol.min()))
     return float(np.mean(vals))
 
 
@@ -93,12 +89,7 @@ def flicker_score(frames):
 
 
 def flicker_highfreq_variance(frames):
-    """Variance of inter-frame mean absolute differences.
-
-    Note: this metric is LOW for constant alternation (e.g. pure strobe)
-    because the inter-frame diff is constant → low variance. It is HIGH
-    when the flicker is irregular. Interpret accordingly.
-    """
+    """Variance of inter-frame mean absolute differences."""
     if len(frames) < 3:
         return None
     diffs = []
@@ -116,7 +107,6 @@ def flicker_highfreq_variance(frames):
 # -------------------------------------------------------------------
 
 def ssim_long_range(frames):
-    """2D-SSIM between the first and last frame of a shot."""
     if len(frames) < 2:
         return None
     g0 = cv2.cvtColor(frames[0], cv2.COLOR_BGR2GRAY)
@@ -139,7 +129,6 @@ DEFAULT_COMPOSITE_WEIGHTS = {
     "clip_temp_mean": 1.0,
 }
 
-# Map from weight key → corresponding raw metric key in a shot's `gates` entry
 WEIGHT_TO_METRIC_KEY = {
     "motion_mean": "motion_peak_div",
     "ssim_mean": "ssim3d_self",
@@ -151,15 +140,6 @@ WEIGHT_TO_METRIC_KEY = {
 
 
 def compute_composite_score(metrics, weights=None):
-    """Linear combination of pre-computed *_mean metrics.
-
-    metrics : dict with keys matching `weights` (e.g. "motion_mean").
-    weights : dict, defaults to DEFAULT_COMPOSITE_WEIGHTS.
-
-    None values are skipped (not counted as 0) — this is correct in expectation
-    but introduces a slight bias if some metrics are often None. Document this
-    when reporting scores.
-    """
     if weights is None:
         weights = DEFAULT_COMPOSITE_WEIGHTS
     score = 0.0
@@ -171,22 +151,6 @@ def compute_composite_score(metrics, weights=None):
 
 
 def recompute_composite_scores(gates, weights=None):
-    """Recompute the `composite` field for every shot in `gates`.
-
-    Used by `adaptive_multi_stage_audit` after Stage 2 reweighting.
-
-    Parameters
-    ----------
-    gates : dict[str | int, dict]
-        Per-shot metrics as produced by `audit_video`.
-    weights : dict | None
-        Composite weights (keys like "motion_mean"). If None, uses
-        DEFAULT_COMPOSITE_WEIGHTS.
-
-    Returns
-    -------
-    gates : the same dict, with an updated "composite" field per shot.
-    """
     if weights is None:
         weights = DEFAULT_COMPOSITE_WEIGHTS
     for g in gates.values():
