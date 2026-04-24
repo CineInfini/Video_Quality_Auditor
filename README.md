@@ -1,9 +1,9 @@
+```markdown
 # 🎬 CineInfini – Video Quality Auditor
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![arXiv](https://img.shields.io/badge/arXiv-2504.12345-red.svg)](https://arxiv.org/abs/xxxx.xxxxx) <!-- placeholder -->
 
 **CineInfini** is an open‑source, modular pipeline for automatic, explainable video quality auditing. It goes beyond traditional fidelity metrics (PSNR, SSIM) by assessing **temporal stability, identity consistency, semantic coherence, and narrative flow** – all in a single GPU‑accelerated pipeline.
 
@@ -21,7 +21,6 @@
 - **GPU acceleration** – CUDA for CLIP/DINOv2, parallel shot processing (4 workers)  
 - **Exhaustive reports** – Markdown dashboards with bar charts, radar plots, improvement suggestions, and JSON exports  
 - **Benchmark mode** – compare multiple videos (synthetic / real) with inter‑video dashboards  
-- **Paper generation** – automatically produce a full academic paper (abstract, results, discussion, references) with embedded figures  
 
 ---
 
@@ -69,14 +68,6 @@ cineinfini audit video.mp4 --output reports/
 cineinfini compare --vids video1.mp4 video2.mp4 --benchmark
 ```
 
-### 4. Generate a full academic paper from audit results
-```python
-from cineinfini.paper import generate_paper
-
-df_synth, df_real = load_aggregated_data()   # from your audit runs
-generate_paper(df_synth, df_real, output_path="paper.md")
-```
-
 ---
 
 ## ⚙️ Configuration
@@ -107,8 +98,6 @@ After an audit, the pipeline creates:
 - **`reports/inter/<benchmark_name>/`** (benchmark mode)  
   - Inter‑video comparison dashboard with tables, bar charts, and radar  
 
-- **`papers/`** – generated academic paper (Markdown + PDF)  
-
 ---
 
 ## 📖 Documentation
@@ -135,11 +124,11 @@ Distributed under the **MIT License**. See [LICENSE](LICENSE) for more informati
 
 ## 📄 Citation
 
-If you use CineInfini in your research, please cite the associated paper:
+If you use CineInfini in your research, please cite it as:
 
 ```bibtex
 @software{cineinfini2025,
-  author = {Your Name},
+  author = {Salah-Eddine BENBRAHIM},
   title = {CineInfini: Adaptive Multi‑Stage Video Quality Audit Pipeline},
   year = {2025},
   url = {https://github.com/CineInfini/Video_Quality_Auditor},
@@ -159,3 +148,4 @@ If you use CineInfini in your research, please cite the associated paper:
 
 **Star ⭐ this repository if you find it useful!**  
 For questions or suggestions, open an [issue](https://github.com/CineInfini/Video_Quality_Auditor/issues).
+```
