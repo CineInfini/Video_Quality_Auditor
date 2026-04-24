@@ -2,9 +2,9 @@ cff-version: 1.2.0
 message: "If you use CineInfini in your research, please cite it as below."
 title: "CineInfini: Adaptive Multi‑Stage Video Quality Audit Pipeline"
 authors:
-  - name: "Your Name"
-    affiliation: "Your Institution"
-    orcid: "https://orcid.org/0000-0000-0000-0000"
+  - name: "Salah-Eddine BENBRAHIM"
+    affiliation: "CineInfini"
+    orcid: "https://orcid.org/0009-0005-7050-4014"
   - name: "Other Author"
     affiliation: "Other Institution"
 version: 0.1.0
