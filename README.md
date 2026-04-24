@@ -32,7 +32,7 @@ cineinfini benchmark v1.mp4 v2.mp4 v3.mp4
 ```
 
 ## 📖 Documentation
-- **API reference**: [docs/api/index.html](docs/api/index.html) (generated with pdoc)
+- **API reference**: [docs/pydoc_final/index.html](docs/pydoc_final/index.html) (generated with pdoc)
 - Example notebooks in `notebooks/`
 
 ## 📄 Citation

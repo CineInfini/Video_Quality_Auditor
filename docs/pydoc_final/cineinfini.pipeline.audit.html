@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module cineinfini.pipeline.audit</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="cineinfini.html" class="white">cineinfini</a>.<a href="cineinfini.pipeline.html" class="white">pipeline</a>.audit</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/content/cineinfini-dev/src/cineinfini/pipeline/audit.py">/content/cineinfini-dev/src/cineinfini/pipeline/audit.py</a></td></tr></table>
+    <p><span class="code">#&nbsp;===================================================================<br>
+#&nbsp;Main&nbsp;audit&nbsp;pipeline:&nbsp;shot&nbsp;detection,&nbsp;frame&nbsp;extraction,&nbsp;metric&nbsp;computation,<br>
+#&nbsp;report&nbsp;generation,&nbsp;and&nbsp;multi-stage&nbsp;audit.<br>
+#&nbsp;===================================================================</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="csv.html">csv</a><br>
+<a href="cv2.html">cv2</a><br>
+</td><td class="multicolumn"><a href="json.html">json</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td class="multicolumn"><a href="time.html">time</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-adaptive_multi_stage_audit"><strong>adaptive_multi_stage_audit</strong></a>(video_path, force_full_video=False)</dt><dd><span class="code">Simple&nbsp;wrapper&nbsp;around&nbsp;audit_video.&nbsp;In&nbsp;future&nbsp;versions&nbsp;this&nbsp;will&nbsp;implement<br>
+a&nbsp;proper&nbsp;two‑stage&nbsp;adaptive&nbsp;audit&nbsp;(weight&nbsp;optimisation,&nbsp;parameter&nbsp;tuning).</span></dd></dl>
+ <dl><dt><a name="-audit_video"><strong>audit_video</strong></a>(video_path, video_params=None, force_full_video=False)</dt><dd><span class="code">Main&nbsp;audit&nbsp;function.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+video_path&nbsp;:&nbsp;str&nbsp;or&nbsp;Path<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Path&nbsp;to&nbsp;the&nbsp;input&nbsp;video.<br>
+video_params&nbsp;:&nbsp;dict,&nbsp;optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Override&nbsp;default&nbsp;parameters&nbsp;(max_duration_s,&nbsp;thresholds,&nbsp;etc.).<br>
+force_full_video&nbsp;:&nbsp;bool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;True,&nbsp;analyse&nbsp;the&nbsp;entire&nbsp;video&nbsp;(ignoring&nbsp;max_duration_s).<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+metrics_data&nbsp;:&nbsp;dict<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Dictionary&nbsp;with&nbsp;per-shot&nbsp;metrics,&nbsp;coherence&nbsp;scores,&nbsp;etc.<br>
+report_dir&nbsp;:&nbsp;Path<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Directory&nbsp;where&nbsp;the&nbsp;JSON&nbsp;and&nbsp;Markdown&nbsp;dashboard&nbsp;were&nbsp;saved.</span></dd></dl>
+ <dl><dt><a name="-generate_synthetic_video"><strong>generate_synthetic_video</strong></a>(name, duration_s, fps, resolution, pattern='circle')</dt></dl>
+ <dl><dt><a name="-set_global_paths"><strong>set_global_paths</strong></a>(reports_dir, benchmark_dir)</dt></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>BENCHMARK_DIR</strong> = None<br>
+<strong>CONFIG</strong> = {'adaptive_threshold': True, 'benchmark_mode': True, 'downsample_to': (320, 180), 'embedder': 'arcface_onnx', 'enable_animal_face_detection': False, 'frame_resize': (320, 180), 'gpu_device': 'cpu', 'max_duration_s': 60, 'max_workers': 4, 'min_shot_duration_s': 0.5, ...}<br>
+<strong>REPORTS_DIR</strong> = None</td></tr></table>
+</body></html>

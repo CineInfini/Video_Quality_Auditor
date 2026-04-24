@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module cineinfini.core.metrics</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="cineinfini.html" class="white">cineinfini</a>.<a href="cineinfini.core.html" class="white">core</a>.metrics</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/content/cineinfini-dev/src/cineinfini/core/metrics.py">/content/cineinfini-dev/src/cineinfini/core/metrics.py</a></td></tr></table>
+    <p><span class="code">Stable&nbsp;metric&nbsp;functions&nbsp;(optical&nbsp;flow,&nbsp;SSIM,&nbsp;flicker,&nbsp;etc.).</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="cv2.html">cv2</a><br>
+</td><td class="multicolumn"><a href="numpy.html">numpy</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-compute_composite_score"><strong>compute_composite_score</strong></a>(metrics, weights=None)</dt></dl>
+ <dl><dt><a name="-flicker_highfreq_variance"><strong>flicker_highfreq_variance</strong></a>(frames)</dt><dd><span class="code">Variance&nbsp;of&nbsp;inter-frame&nbsp;mean&nbsp;absolute&nbsp;differences.</span></dd></dl>
+ <dl><dt><a name="-flicker_score"><strong>flicker_score</strong></a>(frames)</dt></dl>
+ <dl><dt><a name="-flicker_score_no_reference"><strong>flicker_score_no_reference</strong></a>(vol)</dt></dl>
+ <dl><dt><a name="-motion_field_divergence"><strong>motion_field_divergence</strong></a>(flow)</dt></dl>
+ <dl><dt><a name="-motion_peak_div"><strong>motion_peak_div</strong></a>(frames)</dt></dl>
+ <dl><dt><a name="-optical_flow_farneback"><strong>optical_flow_farneback</strong></a>(frame1, frame2)</dt></dl>
+ <dl><dt><a name="-recompute_composite_scores"><strong>recompute_composite_scores</strong></a>(gates, weights=None)</dt></dl>
+ <dl><dt><a name="-ssim3d_self"><strong>ssim3d_self</strong></a>(frames)</dt></dl>
+ <dl><dt><a name="-ssim_3d_self_shifted"><strong>ssim_3d_self_shifted</strong></a>(vol, block_size=7)</dt></dl>
+ <dl><dt><a name="-ssim_long_range"><strong>ssim_long_range</strong></a>(frames)</dt></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>DEFAULT_COMPOSITE_WEIGHTS</strong> = {'clip_temp_mean': 1.0, 'flicker_mean': -1.0, 'identity_mean': -1.0, 'motion_mean': -1.0, 'ssim_lr_mean': 1.0, 'ssim_mean': 1.0}<br>
+<strong>WEIGHT_TO_METRIC_KEY</strong> = {'clip_temp_mean': 'clip_temp_consistency', 'flicker_mean': 'flicker', 'identity_mean': 'identity_intra', 'motion_mean': 'motion_peak_div', 'ssim_lr_mean': 'ssim_long_range', 'ssim_mean': 'ssim3d_self'}</td></tr></table>
+</body></html>

@@ -1,9 +1,6 @@
-# CineInfini Documentation
 
-Welcome to the CineInfini documentation. CineInfini is a modular, open‑source pipeline for automatic, explainable video quality auditing.
+# Welcome to CineInfini documentation
 
-## Contents
+CineInfini is a video quality audit pipeline.
 
-- [Installation](installation.md)
-- [Usage](usage.md)
-- [API Reference](api/index.html) (auto‑generated)
+See the [API Reference](api/cineinfini.md) for detailed module documentation.

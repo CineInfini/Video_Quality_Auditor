@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module cineinfini.benchmark</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="cineinfini.html" class="white">cineinfini</a>.benchmark</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/content/cineinfini-dev/src/cineinfini/benchmark.py">/content/cineinfini-dev/src/cineinfini/benchmark.py</a></td></tr></table>
+    <p><span class="code">CineInfini&nbsp;–&nbsp;Benchmark&nbsp;and&nbsp;multi-video&nbsp;audit&nbsp;utilities.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="json.html">json</a><br>
+</td><td class="multicolumn"><a href="numpy.html">numpy</a><br>
+</td><td class="multicolumn"><a href="time.html">time</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-audit_multiple_videos"><strong>audit_multiple_videos</strong></a>(video_paths, output_subdir='multi_audit', max_duration_s=10, force_full_video=False) -&gt; pathlib.Path</dt></dl>
+ <dl><dt><a name="-benchmark_models"><strong>benchmark_models</strong></a>(video_path, model_names=None, output_file=None) -&gt; Dict[str, float]</dt></dl>
+ <dl><dt><a name="-compare_multiple_videos"><strong>compare_multiple_videos</strong></a>(video_list, output_subdir='comparison_group', max_duration_s=10) -&gt; pathlib.Path</dt></dl>
+ <dl><dt><a name="-generate_test_dataset"><strong>generate_test_dataset</strong></a>(output_dir, num_videos=5, duration_s=2, fps=24, resolution=(320, 240), patterns=None) -&gt; List[pathlib.Path]</dt></dl>
+ <dl><dt><a name="-run_benchmark"><strong>run_benchmark</strong></a>(video_path, output_file=None, repeats=3) -&gt; Dict[str, Any]</dt></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>CONFIG</strong> = {'adaptive_threshold': True, 'benchmark_mode': True, 'downsample_to': (320, 180), 'embedder': 'arcface_onnx', 'enable_animal_face_detection': False, 'frame_resize': (320, 180), 'gpu_device': 'cpu', 'max_duration_s': 60, 'max_workers': 4, 'min_shot_duration_s': 0.5, ...}<br>
+<strong>Dict</strong> = typing.Dict<br>
+<strong>List</strong> = typing.List<br>
+<strong>REPORTS_DIR</strong> = None<br>
+<strong>Union</strong> = typing.Union</td></tr></table>
+</body></html>

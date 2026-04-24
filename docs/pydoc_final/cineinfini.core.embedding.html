@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module cineinfini.core.embedding</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="cineinfini.html" class="white">cineinfini</a>.<a href="cineinfini.core.html" class="white">core</a>.embedding</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/content/cineinfini-dev/src/cineinfini/core/embedding.py">/content/cineinfini-dev/src/cineinfini/core/embedding.py</a></td></tr></table>
+    <p><span class="code">CLIP&nbsp;and&nbsp;DINOv2&nbsp;models&nbsp;for&nbsp;semantic&nbsp;and&nbsp;narrative&nbsp;coherence.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="PIL.Image.html">PIL.Image</a><br>
+<a href="cv2.html">cv2</a><br>
+</td><td class="multicolumn"><a href="numpy.html">numpy</a><br>
+<a href="open_clip.html">open_clip</a><br>
+</td><td class="multicolumn"><a href="torch.html">torch</a><br>
+<a href="warnings.html">warnings</a><br>
+</td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="cineinfini.core.embedding.html#CLIPSemanticScorer">CLIPSemanticScorer</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="CLIPSemanticScorer">class <strong>CLIPSemanticScorer</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#CLIPSemanticScorer">CLIPSemanticScorer</a>(model_path=None,&nbsp;device:&nbsp;str&nbsp;=&nbsp;'cpu')<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="CLIPSemanticScorer-__init__"><strong>__init__</strong></a>(self, model_path=None, device: str = 'cpu')</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="CLIPSemanticScorer-score"><strong>score</strong></a>(self, frames, description: str, n_samples: int = 6)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-__getattr__"><strong>__getattr__</strong></a>(name)</dt></dl>
+ <dl><dt><a name="-clip_semantic_consistency"><strong>clip_semantic_consistency</strong></a>(frames, clip_model, clip_preprocess, device: str)</dt></dl>
+ <dl><dt><a name="-get_dinov2"><strong>get_dinov2</strong></a>()</dt></dl>
+ <dl><dt><a name="-load_dinov2"><strong>load_dinov2</strong></a>(device: str = 'cpu') -&gt; bool</dt></dl>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>dinov2_model</strong> = None<br>
+<strong>dinov2_processor</strong> = None</td></tr></table>
+</body></html>
