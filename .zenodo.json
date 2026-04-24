@@ -1,0 +1,12 @@
+{
+  "creators": [
+    {
+      "name": "BENBRAHIM, Salah-Eddine",
+      "orcid": "0009-0005-7050-4014"
+    }
+  ],
+  "title": "CineInfini: Adaptive Multi‑Stage Video Quality Audit Pipeline",
+  "description": "Open‑source pipeline for automatic video quality auditing with GPU acceleration, narrative coherence, and benchmark export.",
+  "license": "MIT",
+  "upload_type": "software"
+}
