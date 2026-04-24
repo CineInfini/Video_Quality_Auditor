@@ -75,7 +75,7 @@ select = ["E", "F", "W", "I", "C", "N", "UP", "B", "SIM"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
-addopts = "--cov=cineinfini --cov-report=term"
+addopts = "" #"--cov=cineinfini --cov-report=term"
 
 [tool.mypy]
 python_version = "3.9"
