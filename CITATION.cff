@@ -1,20 +1,14 @@
 cff-version: 1.2.0
-message: "If you use this software in your research, please cite it as below."
+message: "If you use CineInfini, please cite it as below."
+title: "CineInfini: Adaptive Multi-Stage Video Quality Audit Pipeline"
 authors:
-  - family-names: "Benbrahim"
-    given-names: "Salah-Eddine"
-title: "CineInfini: Video Quality Auditor"
-version: 0.1.1
+  - name: "Salah-Eddine BENBRAHIM"
+    email: "benbrahim.salah.eddine.777@gmail.com"
+    orcid: "https://orcid.org/0009-0005-7050-4014"
+version: 0.1.2
 date-released: 2026-04-24
-url: "https://github.com/CineInfini/Video_Quality_Auditor"
+license: MIT
 repository-code: "https://github.com/CineInfini/Video_Quality_Auditor"
-doi: "10.5281/zenodo.19746827"
-license: "MIT"
-keywords:
-  - "video-quality"
-  - "audit"
-  - "SSIM"
-  - "optical-flow"
-  - "CLIP"
-  - "DINOv2"
-abstract: "CineInfini is a comprehensive pipeline for auditing video quality, analyzing motion, flicker, and semantic coherence."
+url: "https://github.com/CineInfini/Video_Quality_Auditor"
+type: software
+keywords: [video quality, VQA, SSIM, optical flow, CLIP, DINOv2, ArcFace]
