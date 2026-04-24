@@ -1,4 +1,3 @@
-```markdown
 # 🎬 CineInfini – Video Quality Auditor
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -148,4 +147,3 @@ If you use CineInfini in your research, please cite it as:
 
 **Star ⭐ this repository if you find it useful!**  
 For questions or suggestions, open an [issue](https://github.com/CineInfini/Video_Quality_Auditor/issues).
-```
