@@ -6,9 +6,11 @@ authors:
     email: "benbrahim.salah.eddine.777@gmail.com"
     orcid: "https://orcid.org/0009-0005-7050-4014"
 version: 0.2.0
-date-released: 2026-04-24
+date-released: 2026-04-25
 license: MIT
 repository-code: "https://github.com/CineInfini/Video_Quality_Auditor"
 url: "https://github.com/CineInfini/Video_Quality_Auditor"
 type: software
 keywords: [video quality, VQA, SSIM, optical flow, CLIP, DINOv2, ArcFace]
+
+doi: "10.5281/zenodo.19754084"

@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![PyPI](https://img.shields.io/pypi/v/cineinfini-audit.svg)](https://pypi.org/project/cineinfini-audit/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19754084.svg)](https://doi.org/10.5281/zenodo.19754084)
+
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 **CineInfini** is an open‑source pipeline for automatic, explainable video quality auditing.
