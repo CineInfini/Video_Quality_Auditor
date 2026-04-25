@@ -160,3 +160,43 @@ def recompute_composite_scores(gates, weights=None):
         }
         g["composite"] = compute_composite_score(mets, weights)
     return gates
+
+
+
+def clip_temp_consistency(frames, clip_scorer):
+    """
+    Measure temporal consistency of semantic content using CLIP.
+    
+    Parameters
+    ----------
+    frames : list of np.ndarray
+        List of frames in temporal order.
+    clip_scorer : CLIPSemanticScorer
+        Instance of CLIPSemanticScorer.
+    
+    Returns
+    -------
+    float
+        Average cosine similarity between consecutive frame CLIP embeddings.
+        Returns 0.0 if not enough frames or scorer unavailable.
+    """
+    if len(frames) < 2 or not clip_scorer.available:
+        return 0.0
+    
+    feats = []
+    for f in frames:
+        feat = clip_scorer.extract_features(f)
+        if feat is not None:
+            feats.append(feat)
+        else:
+            return 0.0
+    
+    if len(feats) < 2:
+        return 0.0
+    
+    sims = []
+    for i in range(len(feats) - 1):
+        sim = np.dot(feats[i], feats[i+1]) / (np.linalg.norm(feats[i]) * np.linalg.norm(feats[i+1]) + 1e-9)
+        sims.append(sim)
+    
+    return float(np.mean(sims))

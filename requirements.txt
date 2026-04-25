@@ -1,33 +1,18 @@
-# Core dependencies
-opencv-python>=4.8.0
-numpy>=1.24.0
-scipy>=1.10.0
-matplotlib>=3.7.0
-pandas>=2.0.0
-scikit-image>=0.21.0
-Pillow>=9.5.0
-
-# Machine learning / deep learning
-torch>=2.0.0
-onnxruntime>=1.14.0
-open-clip-torch>=2.20.0
-transformers>=4.30.0
-
-# Utilities
-requests>=2.31.0
-click>=8.1.0
-PyYAML>=6.0
-
-# Report generation
-markdown>=3.4.0
-weasyprint>=60.0
-plotly>=5.15.0
-
-# Testing (optional, for developers)
-pytest>=7.0.0
-pytest-cov>=4.0.0
-
-# Code quality (optional, for developers)
-black>=23.0.0
-ruff>=0.0.270
-pre-commit>=3.0.0
+opencv-python>=4.8
+numpy>=1.24
+matplotlib>=3.5
+pandas>=1.5
+scipy>=1.9
+scikit-image>=0.19
+Pillow>=9.5
+torch>=2.0
+onnxruntime>=1.14
+open-clip-torch>=2.20
+transformers>=4.30
+requests>=2.28
+click>=8.1
+markdown>=3.4
+weasyprint>=60
+plotly>=5.15
+dtaidistance>=2.0
+fastdtw>=0.3

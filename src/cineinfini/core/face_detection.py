@@ -139,3 +139,14 @@ def identity_within_shot(frames, detector, embedder, n_samples=5):
     ref = embs[0]
     dists = [1.0 - float(np.dot(ref, e)) for e in embs[1:]]
     return float(np.mean(dists))
+
+
+def get_face_detector():
+    """Get or initialize the face detector."""
+    from .face_detection import CascadeFaceDetector
+    return CascadeFaceDetector()
+
+def get_face_embedder():
+    """Get or initialize the face embedder."""
+    from .face_detection import ArcFaceEmbedder
+    return ArcFaceEmbedder()

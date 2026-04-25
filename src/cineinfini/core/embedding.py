@@ -117,3 +117,15 @@ def __getattr__(name):
         )
         return globals()[name]
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
+    def extract_features(self, image):
+        """Extract CLIP features for a single image."""
+        if not self.available:
+            return None
+        # Implementation depends on CLIP
+        image_tensor = self.preprocess(image).unsqueeze(0).to(self.device)
+        with torch.no_grad():
+            features = self.model.encode_image(image_tensor)
+        features = features / features.norm(dim=-1, keepdim=True)
+        return features.cpu().numpy().squeeze()

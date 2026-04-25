@@ -4,79 +4,28 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cineinfini-audit"
-version = "0.1.2"
-description = "Adaptive multi‑stage video quality audit pipeline"
+dynamic = ["version"]
+description = "CineInfini: Adaptive Multi-Stage Video Quality Audit Pipeline"
 readme = "README.md"
-requires-python = ">=3.9"
 license = {text = "MIT"}
-authors = [
-    {name = "Salah-Eddine BENBRAHIM", email = "benbrahim.salah.eddine.777@gmail.com"}
-]
-keywords = ["video-quality", "audit", "SSIM", "optical-flow", "CLIP", "DINOv2"]
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Topic :: Multimedia :: Video",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
-]
+authors = [{name = "Salah-Eddine BENBRAHIM", email = "benbrahim.salah.eddine.777@gmail.com"}]
+requires-python = ">=3.9"
 dependencies = [
-    "opencv-python>=4.8",
-    "numpy>=1.24",
-    "matplotlib>=3.5",
-    "pandas>=1.5",
-    "scipy>=1.9",
-    "scikit-image>=0.19",
-    "Pillow>=9.5",
-    "torch>=2.0",
-    "onnxruntime>=1.14",
-    "open-clip-torch>=2.20",
-    "transformers>=4.30",
-    "requests>=2.28",
-    "click>=8.1",
-    "markdown>=3.4",
-    "weasyprint>=60",
-    "plotly>=5.15",
+    "opencv-python>=4.8", "numpy>=1.24", "matplotlib>=3.5", "pandas>=1.5",
+    "scipy>=1.9", "scikit-image>=0.19", "Pillow>=9.5", "torch>=2.0",
+    "onnxruntime>=1.14", "open-clip-torch>=2.20", "transformers>=4.30",
+    "requests>=2.28", "click>=8.1", "markdown>=3.4", "weasyprint>=60", "plotly>=5.15",
 ]
-
 [project.optional-dependencies]
-dev = [
-    "pytest>=7.0",
-    "pytest-cov>=4.0",
-    "black>=23.0",
-    "ruff>=0.0.270",
-    "pre-commit>=3.0",
-]
-
-[project.urls]
-Homepage = "https://github.com/CineInfini/Video_Quality_Auditor"
-Repository = "https://github.com/CineInfini/Video_Quality_Auditor.git"
-Documentation = "https://cineinfini.readthedocs.io"
-
+dev = ["pytest>=7.0", "black", "isort", "flake8"]
+dtw = ["dtaidistance", "fastdtw"]
 [project.scripts]
 cineinfini = "cineinfini.cli.main:cli"
-
+[tool.setuptools.dynamic]
+version = {attr = "cineinfini.__version__"}
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["cineinfini*"]
-
-[tool.black]
-line-length = 100
-target-version = ['py39']
-
-[tool.ruff]
-line-length = 100
-select = ["E", "F", "W", "I", "C", "N", "UP", "B", "SIM"]
-
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
-addopts = "" #"--cov=cineinfini --cov-report=term"
-
-[tool.mypy]
-python_version = "0.1.2"
-ignore_missing_imports = true
