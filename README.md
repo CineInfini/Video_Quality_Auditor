@@ -32,7 +32,8 @@ cineinfini benchmark v1.mp4 v2.mp4 v3.mp4
 ```
 
 ## 📖 Documentation
-- **API reference**: [docs/index.html](docs/index.html) (generated with pdoc)
+
+📖 **API reference** : [Visualiser la documentation](https://htmlpreview.github.io/?https://github.com/CineInfini/Video_Quality_Auditor/blob/main/docs/index.html)
 - Example notebooks in `notebooks/`
 
 ## 📄 Citation
