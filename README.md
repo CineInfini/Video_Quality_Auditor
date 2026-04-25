@@ -39,11 +39,11 @@ cineinfini benchmark v1.mp4 v2.mp4 v3.mp4
 ## 📄 Citation
 ```bibtex
 @software{cineinfini2026,
-  author = {Salah-Eddine BENBRAHIM},
+  author = {BENBRAHIM, Salah-Eddine},
   title = {CineInfini},
   year = {2026},
   url = {https://github.com/CineInfini/Video_Quality_Auditor},
-  version = {0.1.2}
+  version = {0.2.0}
 }
 ```
 
