@@ -1,11 +1,11 @@
-cff-version: 1.2.0
+cff-version: 0.2.0
 message: "If you use CineInfini, please cite it as below."
 title: "CineInfini: Adaptive Multi-Stage Video Quality Audit Pipeline"
 authors:
-  - name: "Salah-Eddine BENBRAHIM"
+  - name: "BENBRAHIM, Salah-Eddine"
     email: "benbrahim.salah.eddine.777@gmail.com"
     orcid: "https://orcid.org/0009-0005-7050-4014"
-version: 0.1.2
+version: 0.2.0
 date-released: 2026-04-24
 license: MIT
 repository-code: "https://github.com/CineInfini/Video_Quality_Auditor"
