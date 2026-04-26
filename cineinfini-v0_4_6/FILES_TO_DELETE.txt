@@ -1,0 +1,2 @@
+FILES_TO_DELETE.txt:
+src/cineinfini/pipeline/audit_todelete.py

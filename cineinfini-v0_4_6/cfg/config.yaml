@@ -1,0 +1,60 @@
+paths:
+  models_dir:      "~/.cineinfini/models"
+  reports_dir:     "~/.cineinfini/reports"
+  benchmark_dir:   "~/.cineinfini/benchmark"
+  test_videos_dir: "~/.cineinfini/test_videos"
+  cache_dir:       "~/.cineinfini/cache"
+  logs_dir:        "~/.cineinfini/logs"
+  temp_dir:        "/tmp/cineinfini"
+
+device:
+  gpu_device: cpu
+
+processing:
+  max_duration_s:        60
+  shot_threshold:        0.2
+  min_shot_duration_s:   0.5
+  downsample_to:         [320, 180]
+  n_frames_per_shot:     16
+  frame_resize:          [320, 180]
+  step:                  2
+  adaptive_threshold:    true
+  threshold_percentile:  85
+  num_workers:           4
+  parallel_shots:        true
+  inter_shot_subsample:  5
+  narrative_coherence:   true
+  compute_dtw_self:      true
+  compute_dtw_inter:     true
+  dtw_max_samples:       16
+  benchmark_mode:        true
+  embedder:              arcface_onnx
+  semantic_scorer:       clip
+
+thresholds:
+  motion:              25.0
+  ssim3d:              0.45
+  flicker:             0.10
+  identity_drift:      0.60
+  ssim_long_range:     0.45
+  clip_temp:           0.25
+  flicker_hf:          0.01
+  narrative_coherence: 0.70
+
+model_urls:
+  arcface:
+    url:      "https://github.com/yakhyo/facial-analysis/releases/download/v0.0.1/w600k_r50.onnx"
+    filename: arcface.onnx
+  yunet:
+    url:      "https://github.com/opencv/opencv_zoo/raw/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx"
+    filename: yunet.onnx
+  clip_vit_b32:
+    url:      "https://openaipublic.azureedge.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt"
+    filename: ViT-B-32.pt
+    sha256:   "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af"
+  bbb_10s:
+    url:      "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4"
+    filename: BigBuckBunny_10s.mp4
+  bvi_vfi:
+    url:      "https://data.bris.ac.uk/datasets/tar/k8bfn0qsj9fs1rwnc2x75z6t7.zip"
+    filename: bvi_vfi.zip

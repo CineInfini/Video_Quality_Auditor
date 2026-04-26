@@ -1,0 +1,34 @@
+# CineInfini — test configuration
+# Loaded by tests/conftest.py via test_config(). Overrides production for speed.
+
+paths:
+  models_dir:      "~/.cineinfini/models"
+  reports_dir:     "/tmp/cineinfini_test/reports"
+  benchmark_dir:   "/tmp/cineinfini_test/benchmark"
+  test_videos_dir: "/tmp/cineinfini_test/videos"
+  cache_dir:       "/tmp/cineinfini_test/cache"
+  logs_dir:        "/tmp/cineinfini_test/logs"
+  temp_dir:        "/tmp/cineinfini_test"
+
+device:
+  gpu_device: cpu
+
+processing:
+  max_duration_s:      10
+  n_frames_per_shot:   8
+  num_workers:         2
+  parallel_shots:      false
+  narrative_coherence: false   # skip DINOv2 for test speed
+  compute_dtw_self:    true
+  compute_dtw_inter:   true
+  benchmark_mode:      false
+
+thresholds:
+  motion:              25.0
+  ssim3d:              0.45
+  flicker:             0.10
+  identity_drift:      0.60
+  ssim_long_range:     0.45
+  clip_temp:           0.25
+  flicker_hf:          0.01
+  narrative_coherence: 0.70
