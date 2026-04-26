@@ -2,7 +2,7 @@
 CineInfini – Video Quality Audit Pipeline
 """
 
-__version__ = "0.2.0"
+__version__ = "0.4.6"
 __author__ = "Salah-Eddine BENBRAHIM"
 __license__ = "MIT"
 
