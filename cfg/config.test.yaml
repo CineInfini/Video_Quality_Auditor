@@ -7,12 +7,14 @@ thresholds: {motion:25.0, ssim3d:0.45, flicker:0.10, identity_drift:0.60, ssim_l
 model_urls: {arcface:{url:"", filename:"arcface.onnx"}, yunet:{url:"", filename:"yunet.onnx"}, clip_vit_b32:{url:"", filename:"ViT-B-32.pt"}, dinov2_vitb14:{url:"", filename:"dinov2_vitb14.pth"}}
 modules:
   motion_coherence: {enabled: true, threshold: 25.0}; identity_consistency: {enabled: true, model: "arcface", threshold: 0.60, n_samples: 3, use_dtw: false}
-  semantic_consistency: {enabled: true, model: "clip", threshold: 0.25}; background_consistency: {enabled: false, method: "ssim", threshold: 0.55, subsample: 5}
+  semantic_consistency: {enabled: true, model: "clip", threshold: 0.25}; background_consistency: {enabled: false}
   origin_detection: {enabled: false}; temporal_signature: {enabled: false}; physics_plausibility: {enabled: false}; trustworthiness: {enabled: false}
-  explainability: {enabled: false}; benchmark_fusion: {enabled: false}; benchmark_forensic: {enabled: false}; causal_reasoning: {enabled: false}
-  long_term_narrative: {enabled: false}; aesthetic_cinematic: {enabled: false}; prompt_alignment_fine: {enabled: false}; world_model_surprise: {enabled: false}
-  subject_consistency_long: {enabled: false}; multi_modal_safety: {enabled: false}; creative_composition: {enabled: false}
+  explainability: {enabled: false}; benchmark_fusion: {enabled: false}; benchmark_forensic: {enabled: false}
+  causal_reasoning: {enabled: false}; long_term_narrative: {enabled: false}; aesthetic_cinematic: {enabled: false}
+  prompt_alignment_fine: {enabled: false}; world_model_surprise: {enabled: false}; subject_consistency_long: {enabled: false}
+  multi_modal_safety: {enabled: false}; creative_composition: {enabled: false}
 reporting:
   active_renderers: ["json"]; figure_format: "png"; figure_dpi: 72; theme: "light"; interactive: false; parallel_renderers: false
   generate_markdown: false; generate_html: false; generate_plots: false; save_raw_data: true; include_shapley: false; dashboard_theme: "light"
+  pdf_backend_priority: ["matplotlib","fpdf2"]; benchmark: {aggregation_method: "median"}
 logging: {level: "WARNING", file_enabled: false, console_enabled: true}

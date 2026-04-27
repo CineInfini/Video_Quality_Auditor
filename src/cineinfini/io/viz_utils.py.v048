@@ -5,7 +5,7 @@ from typing import Any, Iterable, List, Optional
 from ..core.config import get_config
 logger = logging.getLogger("cineinfini.viz")
 _VALID_FORMATS={"png","svg","jpeg","jpg","pdf"}
-def _normalize_formats(formats):
+def _normalize_formats(formats:Optional[Iterable[str]])->List[str]:
     cfg=get_config()
     if formats is None: formats=[cfg.figure_format()]
     out=[]
@@ -15,7 +15,7 @@ def _normalize_formats(formats):
         if f in _VALID_FORMATS: out.append(f)
         else: logger.warning("viz_utils: ignoring unsupported format '%s'",fmt)
     return out or ["png"]
-def save_figure(fig,name,output_dir,formats=None,dpi=None,close=True):
+def save_figure(fig:Any,name:str,output_dir:Path,formats:Optional[Iterable[str]]=None,dpi:Optional[int]=None,close:bool=True)->List[Path]:
     cfg=get_config()
     output_dir.mkdir(parents=True,exist_ok=True)
     fmts=_normalize_formats(formats)
@@ -39,7 +39,7 @@ def save_figure(fig,name,output_dir,formats=None,dpi=None,close=True):
             plt.close(fig)
         except: pass
     return saved
-def new_figure(figsize=(8,4),theme=None):
+def new_figure(figsize=(8,4),theme:Optional[str]=None):
     import matplotlib.pyplot as plt
     cfg=get_config()
     theme=(theme or cfg.theme()).lower()
@@ -47,25 +47,3 @@ def new_figure(figsize=(8,4),theme=None):
     with plt.style.context(style):
         fig,ax=plt.subplots(figsize=figsize)
     return fig,ax
-def save_figure_html_safe(fig,name,output_dir,embed=True):
-    output_dir=Path(output_dir)
-    output_dir.mkdir(parents=True,exist_ok=True)
-    svg_path=output_dir/f"{name}.svg"
-    try:
-        fig.savefig(str(svg_path),format="svg",bbox_inches="tight")
-    except Exception as e:
-        logger.warning("save_figure_html_safe: could not write %s: %s",svg_path,e)
-        return None,None
-    inline=None
-    if embed:
-        try:
-            content=svg_path.read_text(encoding="utf-8")
-            if content.startswith("<?xml"): content=content.split("?>",1)[-1].lstrip()
-            inline=content
-        except Exception as e:
-            logger.debug("save_figure_html_safe: could not inline SVG: %s",e)
-    try:
-        import matplotlib.pyplot as plt
-        plt.close(fig)
-    except: pass
-    return svg_path,inline

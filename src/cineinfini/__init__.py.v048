@@ -1,6 +1,6 @@
 """CineInfini – Video Quality Audit Pipeline (v0.4.7)."""
 from __future__ import annotations
-__version__ = "0.4.8.1"; __author__ = "Salah-Eddine BENBRAHIM"; __license__ = "MIT"
+__version__ = "0.4.8"; __author__ = "Salah-Eddine BENBRAHIM"; __license__ = "MIT"
 
 from .pipeline.audit import (
     audit_video, adaptive_multi_stage_audit, generate_synthetic_video,
