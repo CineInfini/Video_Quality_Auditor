@@ -1,35 +1,28 @@
 paths:
-  models_dir: "~/.cineinfini/models"
-  reports_dir: "~/.cineinfini/reports"
-  benchmark_dir: "~/.cineinfini/benchmark"
-  test_videos_dir: "~/.cineinfini/test_videos"
-  cache_dir: "~/.cineinfini/cache"
-  logs_dir: "~/.cineinfini/logs"
-  temp_dir: "/tmp/cineinfini"
-  output_root: "~/.cineinfini/output"
+  models_dir: "~/.cineinfini/models"; reports_dir: "~/.cineinfini/reports"; benchmark_dir: "~/.cineinfini/benchmark"; test_videos_dir: "~/.cineinfini/test_videos"
+  cache_dir: "~/.cineinfini/cache"; logs_dir: "~/.cineinfini/logs"; temp_dir: "/tmp/cineinfini"; output_root: "~/.cineinfini/output"
 device: {gpu_device: "auto", torch_dtype: "float16", use_amp: true}
-processing: {max_duration_s:60, shot_threshold:0.2, min_shot_duration_s:0.5, downsample_to:[320,180], n_frames_per_shot:16, frame_resize:[320,180], step:2, adaptive_threshold:true, threshold_percentile:85, num_workers:4, parallel_shots:true, inter_shot_subsample:5, narrative_coherence:true, compute_dtw_self:true, compute_dtw_inter:true, dtw_max_samples:16, benchmark_mode:true, embedder:"arcface_onnx", semantic_scorer:"clip"}
+processing:
+  max_duration_s: 60; shot_threshold: 0.2; min_shot_duration_s: 0.5; downsample_to: [320,180]; n_frames_per_shot: 16
+  frame_resize: [320,180]; step: 2; adaptive_threshold: true; threshold_percentile: 85; num_workers: 4; parallel_shots: true
+  inter_shot_subsample: 5; narrative_coherence: true; compute_dtw_self: true; compute_dtw_inter: true; dtw_max_samples: 16
+  benchmark_mode: true; embedder: "arcface_onnx"; semantic_scorer: "clip"; batch_size: 16
 thresholds: {motion:25.0, ssim3d:0.45, flicker:0.10, identity_drift:0.60, ssim_long_range:0.45, clip_temp:0.25, flicker_hf:0.01, narrative_coherence:0.70, temporal_coherence:0.75, physics_overall:0.65, aesthetic_score:0.60, causal_violation:0.35, trust_score:0.70, background_ssim:0.55}
 model_urls: {arcface:{url:"https://github.com/yakhyo/facial-analysis/releases/download/v0.0.1/w600k_r50.onnx", filename:"arcface.onnx", sha256:null}, yunet:{url:"https://github.com/opencv/opencv_zoo/raw/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx", filename:"yunet.onnx", sha256:null}, clip_vit_b32:{url:"https://openaipublic.azureedge.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt", filename:"ViT-B-32.pt", sha256:"40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af"}, dinov2_vitb14:{url:"https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth", filename:"dinov2_vitb14.pth", sha256:null}}
 modules:
-  motion_coherence: {enabled: true, threshold: 25.0}
-  identity_consistency: {enabled: true, model: "arcface", threshold: 0.60, n_samples: 5, use_dtw: true}
-  semantic_consistency: {enabled: true, model: "clip", threshold: 0.25}
-  background_consistency: {enabled: false, method: "ssim", threshold: 0.55, subsample: 5}
-  origin_detection: {enabled: false, confidence_threshold: 0.65}
-  temporal_signature: {enabled: false, max_frames: 30, optical_flow_params: {pyr_scale:0.5, levels:3, winsize:15, iterations:3}}
-  physics_plausibility: {enabled: false, min_contour_area: 300, iou_threshold: 0.3}
-  trustworthiness: {enabled: false, noise_level: 0.05, n_samples: 5}
-  explainability: {enabled: false, method: "proportional", n_permutations: 100}
-  benchmark_fusion: {enabled: false, vbench_path: null}
-  benchmark_forensic: {enabled: false, compression_crfs: [23,28,35]}
-  causal_reasoning: {enabled: false, gravity_penalty: 8.0, vertical_flow_threshold: 0.1}
+  motion_coherence: {enabled: true, threshold: 25.0}; identity_consistency: {enabled: true, model: "arcface", threshold: 0.60, n_samples: 5, use_dtw: true}
+  semantic_consistency: {enabled: true, model: "clip", threshold: 0.25}; background_consistency: {enabled: false, method: "ssim", threshold: 0.55, subsample: 5}
+  origin_detection: {enabled: false, confidence_threshold: 0.65}; temporal_signature: {enabled: false, max_frames: 30}
+  physics_plausibility: {enabled: false, min_contour_area: 300, iou_threshold: 0.3}; trustworthiness: {enabled: false, noise_level: 0.05, n_samples: 5}
+  explainability: {enabled: false, method: "proportional", n_permutations: 100}; benchmark_fusion: {enabled: false, vbench_path: null}
+  benchmark_forensic: {enabled: false, compression_crfs: [23,28,35]}; causal_reasoning: {enabled: false, gravity_penalty: 8.0, vertical_flow_threshold: 0.1}
   long_term_narrative: {enabled: false, segment_size: 16, similarity_metric: "cosine"}
   aesthetic_cinematic: {enabled: false, use_rule_of_thirds: true, color_harmony_weight: 0.4, contrast_weight: 0.3, composition_weight: 0.3}
-  prompt_alignment_fine: {enabled: false, model: "blip2", vlm_device: "cpu"}
-  world_model_surprise: {enabled: false, use_divergence: true, surprise_threshold: 0.7}
-  subject_consistency_long: {enabled: false, window_size: 30, dtw_enabled: true}
-  multi_modal_safety: {enabled: false, nsfw_threshold: 0.8, violence_threshold: 0.7}
+  prompt_alignment_fine: {enabled: false, model: "blip2", vlm_device: "cpu"}; world_model_surprise: {enabled: false, use_divergence: true, surprise_threshold: 0.7}
+  subject_consistency_long: {enabled: false, window_size: 30, dtw_enabled: true}; multi_modal_safety: {enabled: false, nsfw_threshold: 0.8, violence_threshold: 0.7}
   creative_composition: {enabled: false, rhythm_variance_weight: 0.5}
-reporting: {active_renderers: ["markdown","json"], figure_format: "png", figure_dpi: 150, theme: "dark", interactive: true, generate_markdown: true, generate_html: false, generate_plots: true, save_raw_data: true, include_shapley: false, dashboard_theme: "dark"}
-logging: {level: "INFO", file_enabled: true, console_enabled: true, format: "%(asctime)s | %(levelname)-7s | %(name)s | %(message)s"}
+reporting:
+  active_renderers: ["markdown","json","html","pdf","svg","jupyter"]; figure_format: "png"; figure_dpi: 150; theme: "dark"; interactive: true
+  parallel_renderers: false; generate_markdown: true; generate_html: false; generate_plots: true; save_raw_data: true; include_shapley: false; dashboard_theme: "dark"
+logging:
+  level: "INFO"; file_enabled: true; console_enabled: true; format: "%(asctime)s | %(levelname)-7s | %(name)s | %(message)s"

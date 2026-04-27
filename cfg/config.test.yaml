@@ -1,25 +1,18 @@
 paths:
-  models_dir: "~/.cineinfini/models"
-  reports_dir: "/tmp/cineinfini_test/reports"
-  benchmark_dir: "/tmp/cineinfini_test/benchmark"
-  test_videos_dir: "/tmp/cineinfini_test/videos"
-  cache_dir: "/tmp/cineinfini_test/cache"
-  logs_dir: "/tmp/cineinfini_test/logs"
-  temp_dir: "/tmp/cineinfini_test"
-  output_root: "/tmp/cineinfini_test/output"
+  models_dir: "~/.cineinfini/models"; reports_dir: "/tmp/cineinfini_test/reports"; benchmark_dir: "/tmp/cineinfini_test/benchmark"; test_videos_dir: "/tmp/cineinfini_test/videos"
+  cache_dir: "/tmp/cineinfini_test/cache"; logs_dir: "/tmp/cineinfini_test/logs"; temp_dir: "/tmp/cineinfini_test"; output_root: "/tmp/cineinfini_test/output"
 device: {gpu_device: "cpu", torch_dtype: "float32", use_amp: false}
-processing: {max_duration_s:10, n_frames_per_shot:8, num_workers:2, parallel_shots:false, narrative_coherence:false, compute_dtw_self:true, compute_dtw_inter:true, benchmark_mode:false, embedder:"arcface_onnx", semantic_scorer:"clip"}
+processing: {max_duration_s:10, n_frames_per_shot:8, num_workers:2, parallel_shots:false, narrative_coherence:false, compute_dtw_self:true, compute_dtw_inter:true, benchmark_mode:false, embedder:"arcface_onnx", semantic_scorer:"clip", batch_size:4}
 thresholds: {motion:25.0, ssim3d:0.45, flicker:0.10, identity_drift:0.60, ssim_long_range:0.45, clip_temp:0.25, flicker_hf:0.01, background_ssim:0.55}
 model_urls: {arcface:{url:"", filename:"arcface.onnx"}, yunet:{url:"", filename:"yunet.onnx"}, clip_vit_b32:{url:"", filename:"ViT-B-32.pt"}, dinov2_vitb14:{url:"", filename:"dinov2_vitb14.pth"}}
 modules:
-  motion_coherence: {enabled: true, threshold: 25.0}
-  identity_consistency: {enabled: true, model: "arcface", threshold: 0.60, n_samples: 3, use_dtw: false}
-  semantic_consistency: {enabled: true, model: "clip", threshold: 0.25}
-  background_consistency: {enabled: false, method: "ssim", threshold: 0.55, subsample: 5}
+  motion_coherence: {enabled: true, threshold: 25.0}; identity_consistency: {enabled: true, model: "arcface", threshold: 0.60, n_samples: 3, use_dtw: false}
+  semantic_consistency: {enabled: true, model: "clip", threshold: 0.25}; background_consistency: {enabled: false, method: "ssim", threshold: 0.55, subsample: 5}
   origin_detection: {enabled: false}; temporal_signature: {enabled: false}; physics_plausibility: {enabled: false}; trustworthiness: {enabled: false}
-  explainability: {enabled: false}; benchmark_fusion: {enabled: false}; benchmark_forensic: {enabled: false}
-  causal_reasoning: {enabled: false}; long_term_narrative: {enabled: false}; aesthetic_cinematic: {enabled: false}
-  prompt_alignment_fine: {enabled: false}; world_model_surprise: {enabled: false}; subject_consistency_long: {enabled: false}
-  multi_modal_safety: {enabled: false}; creative_composition: {enabled: false}
-reporting: {active_renderers: ["json"], figure_format: "png", figure_dpi: 72, theme: "light", interactive: false, generate_markdown: false, generate_html: false, generate_plots: false, save_raw_data: true, include_shapley: false, dashboard_theme: "light"}
+  explainability: {enabled: false}; benchmark_fusion: {enabled: false}; benchmark_forensic: {enabled: false}; causal_reasoning: {enabled: false}
+  long_term_narrative: {enabled: false}; aesthetic_cinematic: {enabled: false}; prompt_alignment_fine: {enabled: false}; world_model_surprise: {enabled: false}
+  subject_consistency_long: {enabled: false}; multi_modal_safety: {enabled: false}; creative_composition: {enabled: false}
+reporting:
+  active_renderers: ["json"]; figure_format: "png"; figure_dpi: 72; theme: "light"; interactive: false; parallel_renderers: false
+  generate_markdown: false; generate_html: false; generate_plots: false; save_raw_data: true; include_shapley: false; dashboard_theme: "light"
 logging: {level: "WARNING", file_enabled: false, console_enabled: true}
