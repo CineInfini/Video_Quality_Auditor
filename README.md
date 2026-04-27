@@ -45,7 +45,7 @@ cineinfini benchmark v1.mp4 v2.mp4 v3.mp4
   title = {CineInfini},
   year = {2026},
   url = {https://github.com/CineInfini/Video_Quality_Auditor},
-  version = {0.2.0}
+  version = {0.4.8.1}
 }
 ```
 
