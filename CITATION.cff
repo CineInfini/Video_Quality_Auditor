@@ -5,7 +5,7 @@ authors:
   - name: "BENBRAHIM, Salah-Eddine"
     email: "benbrahim.salah.eddine.777@gmail.com"
     orcid: "https://orcid.org/0009-0005-7050-4014"
-version: 0.2.0
+version: 0.4.8.1
 date-released: 2026-04-25
 license: MIT
 repository-code: "https://github.com/CineInfini/Video_Quality_Auditor"
