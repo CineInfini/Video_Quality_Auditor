@@ -1,0 +1,160 @@
+{
+  "n_videos": 862,
+  "n_features": 16,
+  "feature_names": [
+    "sharpness",
+    "brightness",
+    "saturation",
+    "contrast",
+    "flicker",
+    "flicker_var",
+    "motion_proxy",
+    "motion_var",
+    "spatial_info",
+    "temporal_info",
+    "edge_density",
+    "color_richness",
+    "block_artifact",
+    "noise_level",
+    "hog_consistency",
+    "face_count"
+  ],
+  "combined_methods": [
+    {
+      "method": "Ridge (linear)",
+      "n_folds": 5,
+      "spearman_mean": 0.3245868062481263,
+      "spearman_std": 0.04687497805699378,
+      "pearson_mean": 0.3336903003965198,
+      "pearson_std": 0.05470893940483308
+    },
+    {
+      "method": "Random Forest",
+      "n_folds": 5,
+      "spearman_mean": 0.40173355564544516,
+      "spearman_std": 0.07268982419865073,
+      "pearson_mean": 0.4285674399154026,
+      "pearson_std": 0.06960759784135226
+    },
+    {
+      "method": "Gradient Boosting",
+      "n_folds": 5,
+      "spearman_mean": 0.3905470189958719,
+      "spearman_std": 0.0669826117351764,
+      "pearson_mean": 0.40674647886706145,
+      "pearson_std": 0.07076985146354968
+    },
+    {
+      "method": "regime_aware_ridge",
+      "spearman_mean": 0.3706478635399365,
+      "spearman_std": 0.07800895460062877,
+      "clf_acc_mean": 0.8503495093426536
+    }
+  ],
+  "per_dataset_oracle_ridge": [
+    {
+      "dataset": "konvid",
+      "n": 392,
+      "spearman_mean": 0.5127216719067199,
+      "spearman_std": 0.07518023223068163
+    },
+    {
+      "dataset": "videofeedback",
+      "n": 48,
+      "spearman_mean": 0.40071804148646173,
+      "spearman_std": 0.22991023212337608
+    },
+    {
+      "dataset": "t2vqa",
+      "n": 422,
+      "spearman_mean": 0.33738130769021185,
+      "spearman_std": 0.08754111875713988
+    }
+  ],
+  "per_dataset_oracle_rf": [
+    {
+      "dataset": "konvid",
+      "n": 392,
+      "spearman_mean": 0.5658242579019603,
+      "spearman_std": 0.08250909115352487
+    },
+    {
+      "dataset": "videofeedback",
+      "n": 48,
+      "spearman_mean": 0.27529057899322484,
+      "spearman_std": 0.48141932245471675
+    },
+    {
+      "dataset": "t2vqa",
+      "n": 422,
+      "spearman_mean": 0.45469190379073154,
+      "spearman_std": 0.11240577475415064
+    }
+  ],
+  "feature_importance_rf": [
+    {
+      "feature": "brightness",
+      "importance": 0.1425104926280032
+    },
+    {
+      "feature": "block_artifact",
+      "importance": 0.09159853593134674
+    },
+    {
+      "feature": "hog_consistency",
+      "importance": 0.08698795680716992
+    },
+    {
+      "feature": "motion_proxy",
+      "importance": 0.0836014291110802
+    },
+    {
+      "feature": "color_richness",
+      "importance": 0.06571031982767638
+    },
+    {
+      "feature": "saturation",
+      "importance": 0.06326812803159547
+    },
+    {
+      "feature": "contrast",
+      "importance": 0.06316036599533273
+    },
+    {
+      "feature": "sharpness",
+      "importance": 0.06305466923559841
+    },
+    {
+      "feature": "spatial_info",
+      "importance": 0.0555167187416573
+    },
+    {
+      "feature": "edge_density",
+      "importance": 0.05103804355508779
+    },
+    {
+      "feature": "temporal_info",
+      "importance": 0.05056930377673654
+    },
+    {
+      "feature": "flicker",
+      "importance": 0.04800540688347027
+    },
+    {
+      "feature": "motion_var",
+      "importance": 0.045735503979153665
+    },
+    {
+      "feature": "flicker_var",
+      "importance": 0.044594703288234255
+    },
+    {
+      "feature": "noise_level",
+      "importance": 0.03912603712884126
+    },
+    {
+      "feature": "face_count",
+      "importance": 0.005522385079015896
+    }
+  ]
+}

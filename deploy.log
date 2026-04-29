@@ -1,0 +1,86 @@
+2026-04-29 03:28:31 | INFO    | ================================================================
+2026-04-29 03:28:31 | INFO    | CineInfini deploy  —  dry_run=False  force=True
+2026-04-29 03:28:31 | INFO    | repo: /content/unzipped_files/cineinfini-v0.4.10.1/cineinfini-v0.4.10.1
+2026-04-29 03:28:31 | INFO    | logs: deploy.log, test_output.log
+2026-04-29 03:28:31 | INFO    | ================================================================
+2026-04-29 03:28:31 | INFO    | current __version__: 0.4.10.1
+2026-04-29 03:28:31 | INFO    | target  __version__: 0.4.10.1
+2026-04-29 03:28:31 | WARNING | ZENODO_TOKEN not set — Zenodo step will be skipped silently
+2026-04-29 03:28:31 | INFO    | 
+--- 1. git checks ---
+2026-04-29 03:28:31 | INFO    |   --force: skipping clean-tree check
+2026-04-29 03:28:31 | INFO    | $ git rev-parse --abbrev-ref HEAD
+2026-04-29 03:28:31 | INFO    |     [stderr] fatal: not a git repository (or any of the parent directories): .git
+2026-04-29 03:28:31 | INFO    | 
+--- 2. sync versions -> 0.4.10.1 ---
+2026-04-29 03:28:31 | INFO    |   version unchanged, skipping sync
+2026-04-29 03:28:31 | INFO    | 
+--- 3. validate cfg/config.yaml ---
+2026-04-29 03:28:36 | INFO    |     config OK ================================================================
+2026-04-29 03:28:36 | INFO    |       CineInfini — active configuration
+2026-04-29 03:28:36 | INFO    |     ================================================================
+2026-04-29 03:28:36 | INFO    |       device           : auto (effective=cpu)
+2026-04-29 03:28:36 | INFO    |       dtype            : float16
+2026-04-29 03:28:36 | INFO    |       max_duration_s   : 60
+2026-04-29 03:28:36 | INFO    |       n_frames_per_shot: 16
+2026-04-29 03:28:36 | INFO    |       num_workers      : 4
+2026-04-29 03:28:36 | INFO    |       embedder         : arcface_onnx
+2026-04-29 03:28:36 | INFO    |       semantic_scorer  : clip
+2026-04-29 03:28:36 | INFO    |       reports_dir      : /root/.cineinfini/reports
+2026-04-29 03:28:36 | INFO    |       models_dir       : /root/.cineinfini/models
+2026-04-29 03:28:36 | INFO    |       active modules   : motion_coherence, identity_consistency, semantic_consistency
+2026-04-29 03:28:36 | INFO    |       active renderers : markdown, json
+2026-04-29 03:28:36 | INFO    |     ================================================================
+2026-04-29 03:28:36 | INFO    | 
+--- 3.5 paper placeholder guard ---
+2026-04-29 03:28:36 | INFO    |       ✓ /content/unzipped_files/cineinfini-v0.4.10.1/cineinfini-v0.4.10.1/docs/PAPER_DRAFT.md: no placeholders
+2026-04-29 03:28:36 | INFO    | 
+--- 4. tests ---
+2026-04-29 03:28:36 | INFO    | $ /usr/bin/python3 -m pytest tests -v -m not integration and not slow --tb=short   (output -> test_output.log)
+2026-04-29 03:29:51 | INFO    |     tests/test_profiles.py::test_no_profile_enables_all_optional_models_silently PASSED [ 93%]
+2026-04-29 03:29:51 | INFO    |     tests/test_vfi_artifact_module.py::test_module_registered PASSED         [ 94%]
+2026-04-29 03:29:51 | INFO    |     tests/test_vfi_artifact_module.py::test_ghosting_score_clean_returns_low PASSED [ 94%]
+2026-04-29 03:29:51 | INFO    |     tests/test_vfi_artifact_module.py::test_judder_score_clean_returns_low PASSED [ 95%]
+2026-04-29 03:29:51 | INFO    |     tests/test_vfi_artifact_module.py::test_judder_score_juddery_returns_high PASSED [ 95%]
+2026-04-29 03:29:51 | INFO    |     tests/test_vfi_artifact_module.py::test_interp_blur_flags_alternating_frames PASSED [ 95%]
+2026-04-29 03:29:51 | INFO    |     tests/test_vfi_artifact_module.py::test_module_too_few_frames_returns_zero PASSED [ 96%]
+2026-04-29 03:29:51 | INFO    |     tests/test_vfi_artifact_module.py::test_module_full_returns_correct_shape PASSED [ 96%]
+2026-04-29 03:29:51 | INFO    |     tests/test_vfi_artifact_module.py::test_yaml_config_has_disabled_default PASSED [ 96%]
+2026-04-29 03:29:51 | INFO    |     tests/test_vfi_artifact_module.py::test_vfips_dataset_registered PASSED  [ 97%]
+2026-04-29 03:29:51 | INFO    |     tests/test_videofeedback_config.py::test_videofeedback_size_corrected PASSED [ 97%]
+2026-04-29 03:29:51 | INFO    |     tests/test_videofeedback_config.py::test_videofeedback_has_label_fields PASSED [ 97%]
+2026-04-29 03:29:51 | INFO    |     tests/test_videofeedback_config.py::test_videofeedback_uses_hf_fetcher PASSED [ 98%]
+2026-04-29 03:29:51 | INFO    |     tests/test_videofeedback_config.py::test_videofeedback_has_videos_mirror PASSED [ 98%]
+2026-04-29 03:29:51 | INFO    |     tests/test_videofeedback_config.py::test_videofeedback_has_no_legacy_url PASSED [ 98%]
+2026-04-29 03:29:51 | INFO    |     tests/test_videofeedback_config.py::test_yaml_and_python_defaults_in_sync PASSED [ 99%]
+2026-04-29 03:29:51 | INFO    |     tests/test_videofeedback_config.py::test_datasets_info_command_runs PASSED [ 99%]
+2026-04-29 03:29:51 | INFO    |     tests/test_videofeedback_config.py::test_build_calibration_csv_script_exists PASSED [100%]
+2026-04-29 03:29:51 | INFO    |     
+2026-04-29 03:29:51 | INFO    |     ======================== 283 passed in 72.50s (0:01:12) ========================
+2026-04-29 03:29:51 | INFO    | 
+--- 5. build sdist + wheel ---
+2026-04-29 03:29:51 | INFO    | $ /usr/bin/python3 -m pip install --upgrade build twine
+2026-04-29 03:29:54 | INFO    | $ /usr/bin/python3 -m build
+2026-04-29 03:30:03 | INFO    |   built: ['cineinfini_audit-0.4.10.1-py3-none-any.whl', 'cineinfini_audit-0.4.10.1.tar.gz']
+2026-04-29 03:30:03 | INFO    | 
+--- 6. source ZIP archive ---
+2026-04-29 03:30:04 | INFO    |   wrote cineinfini-v0.4.10.1.zip (211 files, 12.65 MB)
+2026-04-29 03:30:04 | INFO    | 
+--- 7. MANIFEST.txt ---
+2026-04-29 03:30:04 | INFO    | $ git tag --sort=-creatordate
+2026-04-29 03:30:04 | INFO    |     [stderr] fatal: not a git repository (or any of the parent directories): .git
+2026-04-29 03:30:04 | INFO    |   no previous tag found — listing every tracked file
+2026-04-29 03:30:04 | INFO    | $ git ls-files
+2026-04-29 03:30:04 | INFO    |     [stderr] fatal: not a git repository (or any of the parent directories): .git
+2026-04-29 03:30:04 | INFO    |   wrote MANIFEST.txt
+2026-04-29 03:30:04 | INFO    | 
+--- 8. API docs (pdoc) ---
+2026-04-29 03:30:05 | WARNING |   pdoc generation failed (non-fatal): install with: pip install 'pdoc>=14.0'
+2026-04-29 03:30:05 | INFO    | 
+--- 9. tag SKIPPED (no version bump) ---
+2026-04-29 03:30:05 | INFO    | 
+--- 10. GitHub release SKIPPED ---
+2026-04-29 03:30:05 | INFO    | 
+--- 11. PyPI upload ---
+2026-04-29 03:30:07 | ERROR   | 
+ERROR: twine upload failed

@@ -1,0 +1,1490 @@
+{
+  "konvid:8724380666": {
+    "dataset": "konvid",
+    "mos": 1.4,
+    "video_path": "<dataset_root>/8724380666_cut_centercrop_960x540_8s.mp4",
+    "frames": [
+      {
+        "frame_idx": 0,
+        "sample_pos": 0,
+        "sharpness": 28.434881819619072,
+        "brightness": 15.825141059027779,
+        "saturation": 163.28683810763889,
+        "contrast": 29.55779123951819
+      },
+      {
+        "frame_idx": 10,
+        "sample_pos": 1,
+        "sharpness": 24.94418767572921,
+        "brightness": 13.1787109375,
+        "saturation": 173.08987087673611,
+        "contrast": 26.463680880352513,
+        "flicker_to_prev": 10.009195963541666
+      },
+      {
+        "frame_idx": 20,
+        "sample_pos": 2,
+        "sharpness": 21.658143173029394,
+        "brightness": 8.944417317708334,
+        "saturation": 192.81968858506946,
+        "contrast": 17.785709510742123,
+        "flicker_to_prev": 11.958848741319445
+      },
+      {
+        "frame_idx": 31,
+        "sample_pos": 3,
+        "sharpness": 16.418266342745884,
+        "brightness": 7.039767795138889,
+        "saturation": 205.67290581597223,
+        "contrast": 14.469428098704386,
+        "flicker_to_prev": 7.474962022569445
+      },
+      {
+        "frame_idx": 41,
+        "sample_pos": 4,
+        "sharpness": 26.399834338529608,
+        "brightness": 13.327473958333334,
+        "saturation": 169.83420138888889,
+        "contrast": 26.732534415549644,
+        "flicker_to_prev": 12.641655815972221
+      },
+      {
+        "frame_idx": 51,
+        "sample_pos": 5,
+        "sharpness": 28.361141939957935,
+        "brightness": 16.73589409722222,
+        "saturation": 146.06692165798611,
+        "contrast": 28.99082577306748,
+        "flicker_to_prev": 14.611762152777779
+      },
+      {
+        "frame_idx": 62,
+        "sample_pos": 6,
+        "sharpness": 25.356689128610824,
+        "brightness": 18.866455078125,
+        "saturation": 137.64013671875,
+        "contrast": 29.798916406615145,
+        "flicker_to_prev": 15.977349175347221
+      },
+      {
+        "frame_idx": 72,
+        "sample_pos": 7,
+        "sharpness": 23.244862714667377,
+        "brightness": 19.20722113715278,
+        "saturation": 131.18891059027777,
+        "contrast": 29.744823083692935,
+        "flicker_to_prev": 15.70364040798611
+      },
+      {
+        "frame_idx": 83,
+        "sample_pos": 8,
+        "sharpness": 31.769557016131323,
+        "brightness": 14.30002170138889,
+        "saturation": 107.45811631944444,
+        "contrast": 26.825968251757224,
+        "flicker_to_prev": 17.703694661458332
+      },
+      {
+        "frame_idx": 93,
+        "sample_pos": 9,
+        "sharpness": 32.55893562384594,
+        "brightness": 16.306287977430557,
+        "saturation": 108.50770399305556,
+        "contrast": 27.578772099331932,
+        "flicker_to_prev": 12.001329210069445
+      },
+      {
+        "frame_idx": 103,
+        "sample_pos": 10,
+        "sharpness": 43.762342075506844,
+        "brightness": 20.548502604166668,
+        "saturation": 95.09084743923611,
+        "contrast": 31.700643494953486,
+        "flicker_to_prev": 17.93524848090278
+      },
+      {
+        "frame_idx": 114,
+        "sample_pos": 11,
+        "sharpness": 20.484486526177253,
+        "brightness": 18.357503255208332,
+        "saturation": 92.87654622395833,
+        "contrast": 28.953926686049936,
+        "flicker_to_prev": 14.466851128472221
+      },
+      {
+        "frame_idx": 124,
+        "sample_pos": 12,
+        "sharpness": 30.51999388506383,
+        "brightness": 19.91376410590278,
+        "saturation": 92.43785264756944,
+        "contrast": 28.375049269032765,
+        "flicker_to_prev": 8.855387369791666
+      },
+      {
+        "frame_idx": 135,
+        "sample_pos": 13,
+        "sharpness": 12.678559832366895,
+        "brightness": 14.555908203125,
+        "saturation": 97.29996744791667,
+        "contrast": 24.681469711024945,
+        "flicker_to_prev": 15.929117838541666
+      },
+      {
+        "frame_idx": 145,
+        "sample_pos": 14,
+        "sharpness": 19.105970746941036,
+        "brightness": 18.613661024305557,
+        "saturation": 95.65351019965277,
+        "contrast": 30.081374919179513,
+        "flicker_to_prev": 13.708116319444445
+      },
+      {
+        "frame_idx": 155,
+        "sample_pos": 15,
+        "sharpness": 18.345039261711968,
+        "brightness": 17.304090711805557,
+        "saturation": 90.13929578993056,
+        "contrast": 27.929225221971187,
+        "flicker_to_prev": 7.005235460069445
+      },
+      {
+        "frame_idx": 166,
+        "sample_pos": 16,
+        "sharpness": 11.985323534335619,
+        "brightness": 15.463080512152779,
+        "saturation": 86.94129774305556,
+        "contrast": 28.89177181446114,
+        "flicker_to_prev": 8.798095703125
+      },
+      {
+        "frame_idx": 176,
+        "sample_pos": 17,
+        "sharpness": 14.654427183998955,
+        "brightness": 16.77398003472222,
+        "saturation": 70.41064453125,
+        "contrast": 32.77145191462854,
+        "flicker_to_prev": 4.868815104166667
+      },
+      {
+        "frame_idx": 187,
+        "sample_pos": 18,
+        "sharpness": 9.410511475286366,
+        "brightness": 12.79147677951389,
+        "saturation": 72.06947157118056,
+        "contrast": 26.039662197647974,
+        "flicker_to_prev": 11.371717664930555
+      },
+      {
+        "frame_idx": 197,
+        "sample_pos": 19,
+        "sharpness": 12.16435537735621,
+        "brightness": 18.49150933159722,
+        "saturation": 68.79844835069444,
+        "contrast": 38.473871434273114,
+        "flicker_to_prev": 10.211832682291666
+      },
+      {
+        "frame_idx": 207,
+        "sample_pos": 20,
+        "sharpness": 12.208407224696359,
+        "brightness": 17.90017361111111,
+        "saturation": 69.92437065972223,
+        "contrast": 37.94073003286832,
+        "flicker_to_prev": 8.035536024305555
+      },
+      {
+        "frame_idx": 218,
+        "sample_pos": 21,
+        "sharpness": 12.893321210955396,
+        "brightness": 18.030598958333332,
+        "saturation": 67.52400716145833,
+        "contrast": 38.000095651740445,
+        "flicker_to_prev": 3.2921820746527777
+      },
+      {
+        "frame_idx": 228,
+        "sample_pos": 22,
+        "sharpness": 12.981781623245757,
+        "brightness": 18.032090928819443,
+        "saturation": 68.91861979166667,
+        "contrast": 37.97134630755831,
+        "flicker_to_prev": 1.491943359375
+      },
+      {
+        "frame_idx": 239,
+        "sample_pos": 23,
+        "sharpness": 12.568023634545597,
+        "brightness": 17.94843207465278,
+        "saturation": 70.69127061631944,
+        "contrast": 38.023354653223976,
+        "flicker_to_prev": 1.1015896267361112
+      }
+    ]
+  },
+  "konvid:4744073127": {
+    "dataset": "konvid",
+    "mos": 1.42,
+    "video_path": "<dataset_root>/4744073127_cut_centercrop_960x540_8s.mp4",
+    "frames": [
+      {
+        "frame_idx": 0,
+        "sample_pos": 0,
+        "sharpness": 859.8654550380177,
+        "brightness": 140.52870008680554,
+        "saturation": 150.7412109375,
+        "contrast": 62.25803200827962
+      },
+      {
+        "frame_idx": 10,
+        "sample_pos": 1,
+        "sharpness": 806.5370503347597,
+        "brightness": 141.44314236111111,
+        "saturation": 150.84187825520834,
+        "contrast": 63.29859184849708,
+        "flicker_to_prev": 18.332872178819443
+      },
+      {
+        "frame_idx": 20,
+        "sample_pos": 2,
+        "sharpness": 838.1067977716892,
+        "brightness": 142.09418402777777,
+        "saturation": 151.07652452256946,
+        "contrast": 63.73040472150761,
+        "flicker_to_prev": 12.56808810763889
+      },
+      {
+        "frame_idx": 31,
+        "sample_pos": 3,
+        "sharpness": 843.6880610423325,
+        "brightness": 141.40931532118054,
+        "saturation": 150.80373806423611,
+        "contrast": 63.08747557977949,
+        "flicker_to_prev": 15.690592447916666
+      },
+      {
+        "frame_idx": 41,
+        "sample_pos": 4,
+        "sharpness": 828.0934097384229,
+        "brightness": 142.47702365451389,
+        "saturation": 151.62516276041666,
+        "contrast": 62.699547596709046,
+        "flicker_to_prev": 6.332004123263889
+      },
+      {
+        "frame_idx": 51,
+        "sample_pos": 5,
+        "sharpness": 826.8137483832276,
+        "brightness": 141.79039171006946,
+        "saturation": 153.84242078993054,
+        "contrast": 62.19203657380675,
+        "flicker_to_prev": 10.231499565972221
+      },
+      {
+        "frame_idx": 62,
+        "sample_pos": 6,
+        "sharpness": 688.7280767817556,
+        "brightness": 141.88522677951389,
+        "saturation": 152.77747938368054,
+        "contrast": 61.6406431003834,
+        "flicker_to_prev": 22.720784505208332
+      },
+      {
+        "frame_idx": 72,
+        "sample_pos": 7,
+        "sharpness": 718.223689959373,
+        "brightness": 141.82321506076389,
+        "saturation": 152.98621961805554,
+        "contrast": 62.34792643394117,
+        "flicker_to_prev": 9.79397243923611
+      },
+      {
+        "frame_idx": 83,
+        "sample_pos": 8,
+        "sharpness": 757.2564423518415,
+        "brightness": 142.47333441840277,
+        "saturation": 152.18112521701389,
+        "contrast": 62.46027850738399,
+        "flicker_to_prev": 10.42822265625
+      },
+      {
+        "frame_idx": 93,
+        "sample_pos": 9,
+        "sharpness": 671.4415877983895,
+        "brightness": 141.68340386284723,
+        "saturation": 152.06209309895834,
+        "contrast": 61.6732926314375,
+        "flicker_to_prev": 14.122884114583334
+      },
+      {
+        "frame_idx": 103,
+        "sample_pos": 10,
+        "sharpness": 699.7316290176944,
+        "brightness": 141.85753038194446,
+        "saturation": 152.05360243055554,
+        "contrast": 61.92314087061024,
+        "flicker_to_prev": 7.814344618055555
+      },
+      {
+        "frame_idx": 114,
+        "sample_pos": 11,
+        "sharpness": 687.0219017281944,
+        "brightness": 142.98377821180554,
+        "saturation": 152.02861870659723,
+        "contrast": 61.51948883987355,
+        "flicker_to_prev": 15.918104383680555
+      },
+      {
+        "frame_idx": 124,
+        "sample_pos": 12,
+        "sharpness": 812.3221541039738,
+        "brightness": 142.95990668402777,
+        "saturation": 153.19889322916666,
+        "contrast": 61.09927525887947,
+        "flicker_to_prev": 17.74240451388889
+      },
+      {
+        "frame_idx": 135,
+        "sample_pos": 13,
+        "sharpness": 800.9187871019045,
+        "brightness": 142.62451171875,
+        "saturation": 153.08987087673611,
+        "contrast": 61.30637570431618,
+        "flicker_to_prev": 11.685465494791666
+      },
+      {
+        "frame_idx": 145,
+        "sample_pos": 14,
+        "sharpness": 867.9532186889353,
+        "brightness": 143.06051974826389,
+        "saturation": 151.65804036458334,
+        "contrast": 62.018153309807396,
+        "flicker_to_prev": 14.02297634548611
+      },
+      {
+        "frame_idx": 155,
+        "sample_pos": 15,
+        "sharpness": 1091.784699221452,
+        "brightness": 144.62291124131946,
+        "saturation": 151.59705946180554,
+        "contrast": 62.20571733427192,
+        "flicker_to_prev": 8.595594618055555
+      },
+      {
+        "frame_idx": 166,
+        "sample_pos": 16,
+        "sharpness": 1096.6787962376338,
+        "brightness": 145.33645290798611,
+        "saturation": 150.90587022569446,
+        "contrast": 63.0841116516292,
+        "flicker_to_prev": 9.804741753472221
+      },
+      {
+        "frame_idx": 176,
+        "sample_pos": 17,
+        "sharpness": 1179.7147617862547,
+        "brightness": 146.28925238715277,
+        "saturation": 147.84944661458334,
+        "contrast": 64.60688125585516,
+        "flicker_to_prev": 11.172254774305555
+      },
+      {
+        "frame_idx": 187,
+        "sample_pos": 18,
+        "sharpness": 1095.2625260411958,
+        "brightness": 147.91227213541666,
+        "saturation": 145.3583984375,
+        "contrast": 65.37451998999373,
+        "flicker_to_prev": 14.08566623263889
+      },
+      {
+        "frame_idx": 197,
+        "sample_pos": 19,
+        "sharpness": 1130.1012858608622,
+        "brightness": 147.39371744791666,
+        "saturation": 146.31716579861111,
+        "contrast": 65.56103792425023,
+        "flicker_to_prev": 10.123914930555555
+      },
+      {
+        "frame_idx": 207,
+        "sample_pos": 20,
+        "sharpness": 1112.6916659665699,
+        "brightness": 146.47365993923611,
+        "saturation": 147.26793077256946,
+        "contrast": 63.580647293918744,
+        "flicker_to_prev": 17.918782552083332
+      },
+      {
+        "frame_idx": 218,
+        "sample_pos": 21,
+        "sharpness": 1180.7407232655419,
+        "brightness": 145.11821831597223,
+        "saturation": 150.83932834201389,
+        "contrast": 62.029823074841495,
+        "flicker_to_prev": 14.983778211805555
+      },
+      {
+        "frame_idx": 228,
+        "sample_pos": 22,
+        "sharpness": 1191.7232769595253,
+        "brightness": 144.14035373263889,
+        "saturation": 150.75773111979166,
+        "contrast": 62.17397557489722,
+        "flicker_to_prev": 14.090440538194445
+      },
+      {
+        "frame_idx": 239,
+        "sample_pos": 23,
+        "sharpness": 1233.869009859032,
+        "brightness": 143.22637261284723,
+        "saturation": 150.99329969618054,
+        "contrast": 62.63438437935983,
+        "flicker_to_prev": 13.507676866319445
+      }
+    ]
+  },
+  "konvid:8758952624": {
+    "dataset": "konvid",
+    "mos": 4.3,
+    "video_path": "<dataset_root>/8758952624_original_centercrop_960x540_8s.mp4",
+    "frames": [
+      {
+        "frame_idx": 0,
+        "sample_pos": 0,
+        "sharpness": 7133.053098864026,
+        "brightness": 55.976481119791664,
+        "saturation": 39.511800130208336,
+        "contrast": 40.769439173976814
+      },
+      {
+        "frame_idx": 10,
+        "sample_pos": 1,
+        "sharpness": 6594.360902335909,
+        "brightness": 55.59510633680556,
+        "saturation": 39.396213107638886,
+        "contrast": 40.08907423743646,
+        "flicker_to_prev": 2.6117621527777777
+      },
+      {
+        "frame_idx": 20,
+        "sample_pos": 2,
+        "sharpness": 6592.858709544312,
+        "brightness": 55.603678385416664,
+        "saturation": 39.37407769097222,
+        "contrast": 40.10859720699965,
+        "flicker_to_prev": 0.04258897569444445
+      },
+      {
+        "frame_idx": 31,
+        "sample_pos": 3,
+        "sharpness": 6594.18862122003,
+        "brightness": 56.322509765625,
+        "saturation": 38.31431749131944,
+        "contrast": 40.19354484418881,
+        "flicker_to_prev": 14.595350477430555
+      },
+      {
+        "frame_idx": 41,
+        "sample_pos": 4,
+        "sharpness": 4072.5153024983997,
+        "brightness": 117.50653754340277,
+        "saturation": 50.80381944444444,
+        "contrast": 78.55904673216551,
+        "flicker_to_prev": 72.36385091145833
+      },
+      {
+        "frame_idx": 51,
+        "sample_pos": 5,
+        "sharpness": 1171.3533435132767,
+        "brightness": 179.22140842013889,
+        "saturation": 77.24734157986111,
+        "contrast": 55.18870567164788,
+        "flicker_to_prev": 107.43348524305556
+      },
+      {
+        "frame_idx": 62,
+        "sample_pos": 6,
+        "sharpness": 1334.748093487304,
+        "brightness": 176.47951931423611,
+        "saturation": 79.39485677083333,
+        "contrast": 57.704480051503666,
+        "flicker_to_prev": 27.178331163194443
+      },
+      {
+        "frame_idx": 72,
+        "sample_pos": 7,
+        "sharpness": 1334.9023263454437,
+        "brightness": 176.48082139756946,
+        "saturation": 79.39371744791667,
+        "contrast": 57.70301788695876,
+        "flicker_to_prev": 0.052815755208333336
+      },
+      {
+        "frame_idx": 83,
+        "sample_pos": 8,
+        "sharpness": 1545.42289230485,
+        "brightness": 178.141357421875,
+        "saturation": 81.77324761284723,
+        "contrast": 56.890175232187524,
+        "flicker_to_prev": 34.45396592881944
+      },
+      {
+        "frame_idx": 93,
+        "sample_pos": 9,
+        "sharpness": 1861.4239638639083,
+        "brightness": 178.54060872395834,
+        "saturation": 86.35120985243056,
+        "contrast": 54.636391397126474,
+        "flicker_to_prev": 34.947238498263886
+      },
+      {
+        "frame_idx": 103,
+        "sample_pos": 10,
+        "sharpness": 2617.108931693766,
+        "brightness": 174.16748046875,
+        "saturation": 90.65283203125,
+        "contrast": 54.19735520403092,
+        "flicker_to_prev": 34.539279513888886
+      },
+      {
+        "frame_idx": 114,
+        "sample_pos": 11,
+        "sharpness": 2722.5433358079117,
+        "brightness": 169.876220703125,
+        "saturation": 95.91745334201389,
+        "contrast": 53.498112043096846,
+        "flicker_to_prev": 33.162082248263886
+      },
+      {
+        "frame_idx": 124,
+        "sample_pos": 12,
+        "sharpness": 2670.1092036565146,
+        "brightness": 167.75130208333334,
+        "saturation": 98.70602756076389,
+        "contrast": 53.99076478072725,
+        "flicker_to_prev": 20.734700520833332
+      },
+      {
+        "frame_idx": 135,
+        "sample_pos": 13,
+        "sharpness": 2599.212566392657,
+        "brightness": 157.78135850694446,
+        "saturation": 104.72848849826389,
+        "contrast": 56.379107432232665,
+        "flicker_to_prev": 45.57996961805556
+      },
+      {
+        "frame_idx": 145,
+        "sample_pos": 14,
+        "sharpness": 2525.8403523645284,
+        "brightness": 158.77913411458334,
+        "saturation": 104.06353081597223,
+        "contrast": 56.91315087298192,
+        "flicker_to_prev": 2.3240831163194446
+      },
+      {
+        "frame_idx": 155,
+        "sample_pos": 15,
+        "sharpness": 2448.22196774939,
+        "brightness": 157.17450629340277,
+        "saturation": 107.46674262152777,
+        "contrast": 53.793443369094746,
+        "flicker_to_prev": 4.871826171875
+      },
+      {
+        "frame_idx": 166,
+        "sample_pos": 16,
+        "sharpness": 2128.699502502694,
+        "brightness": 161.06157769097223,
+        "saturation": 102.31548394097223,
+        "contrast": 58.08180529431835,
+        "flicker_to_prev": 7.331976996527778
+      },
+      {
+        "frame_idx": 176,
+        "sample_pos": 17,
+        "sharpness": 2538.7817278703055,
+        "brightness": 159.07194010416666,
+        "saturation": 107.64111328125,
+        "contrast": 53.73251845710418,
+        "flicker_to_prev": 9.19552951388889
+      },
+      {
+        "frame_idx": 187,
+        "sample_pos": 18,
+        "sharpness": 2666.9058077239697,
+        "brightness": 159.26038953993054,
+        "saturation": 107.98025173611111,
+        "contrast": 53.61269643829407,
+        "flicker_to_prev": 3.5538194444444446
+      },
+      {
+        "frame_idx": 197,
+        "sample_pos": 19,
+        "sharpness": 3398.691804508368,
+        "brightness": 157.06903754340277,
+        "saturation": 104.84977213541667,
+        "contrast": 56.432234670859344,
+        "flicker_to_prev": 4.728081597222222
+      },
+      {
+        "frame_idx": 207,
+        "sample_pos": 20,
+        "sharpness": 4046.4157887093816,
+        "brightness": 153.45255533854166,
+        "saturation": 107.08512369791667,
+        "contrast": 58.67371593419249,
+        "flicker_to_prev": 33.640896267361114
+      },
+      {
+        "frame_idx": 218,
+        "sample_pos": 21,
+        "sharpness": 3639.2781928372974,
+        "brightness": 136.04180230034723,
+        "saturation": 121.48231336805556,
+        "contrast": 65.12843136569963,
+        "flicker_to_prev": 69.105224609375
+      },
+      {
+        "frame_idx": 228,
+        "sample_pos": 22,
+        "sharpness": 6085.932523179201,
+        "brightness": 129.46487087673611,
+        "saturation": 113.80948893229167,
+        "contrast": 71.71338133519633,
+        "flicker_to_prev": 80.71438259548611
+      },
+      {
+        "frame_idx": 239,
+        "sample_pos": 23,
+        "sharpness": 6824.050052748051,
+        "brightness": 127.21818033854167,
+        "saturation": 113.21237521701389,
+        "contrast": 70.4107398621063,
+        "flicker_to_prev": 35.024332682291664
+      }
+    ]
+  },
+  "konvid:3339962845": {
+    "dataset": "konvid",
+    "mos": 4.64,
+    "video_path": "<dataset_root>/3339962845_original_centercrop_960x540_8s.mp4",
+    "frames": [
+      {
+        "frame_idx": 0,
+        "sample_pos": 0,
+        "sharpness": 8201.327725321422,
+        "brightness": 92.69989691840277,
+        "saturation": 139.42561848958334,
+        "contrast": 73.80762802613397
+      },
+      {
+        "frame_idx": 10,
+        "sample_pos": 1,
+        "sharpness": 8318.534462210571,
+        "brightness": 92.00906032986111,
+        "saturation": 137.51798502604166,
+        "contrast": 74.08077632744579,
+        "flicker_to_prev": 11.463134765625
+      },
+      {
+        "frame_idx": 20,
+        "sample_pos": 2,
+        "sharpness": 8531.049942225585,
+        "brightness": 92.29524739583333,
+        "saturation": 137.35932074652777,
+        "contrast": 74.40541468390894,
+        "flicker_to_prev": 3.1450737847222223
+      },
+      {
+        "frame_idx": 31,
+        "sample_pos": 3,
+        "sharpness": 8626.878991371319,
+        "brightness": 91.75035264756944,
+        "saturation": 137.23220486111111,
+        "contrast": 74.3921324557531,
+        "flicker_to_prev": 2.787326388888889
+      },
+      {
+        "frame_idx": 41,
+        "sample_pos": 4,
+        "sharpness": 8691.436619888118,
+        "brightness": 91.15269639756944,
+        "saturation": 137.39274088541666,
+        "contrast": 73.96067620686645,
+        "flicker_to_prev": 1.359375
+      },
+      {
+        "frame_idx": 51,
+        "sample_pos": 5,
+        "sharpness": 8678.7743407819,
+        "brightness": 91.17439778645833,
+        "saturation": 137.42778862847223,
+        "contrast": 73.95567398654987,
+        "flicker_to_prev": 2.3859320746527777
+      },
+      {
+        "frame_idx": 62,
+        "sample_pos": 6,
+        "sharpness": 8737.98142214101,
+        "brightness": 91.16463216145833,
+        "saturation": 136.98562282986111,
+        "contrast": 73.97839855638848,
+        "flicker_to_prev": 1.7132975260416667
+      },
+      {
+        "frame_idx": 72,
+        "sample_pos": 7,
+        "sharpness": 8800.829074247384,
+        "brightness": 91.42258029513889,
+        "saturation": 137.24595811631946,
+        "contrast": 74.1459726279442,
+        "flicker_to_prev": 2.25048828125
+      },
+      {
+        "frame_idx": 83,
+        "sample_pos": 8,
+        "sharpness": 8850.299430941357,
+        "brightness": 91.06022135416667,
+        "saturation": 136.959716796875,
+        "contrast": 73.95091834684148,
+        "flicker_to_prev": 2.0640190972222223
+      },
+      {
+        "frame_idx": 93,
+        "sample_pos": 9,
+        "sharpness": 8793.00667505794,
+        "brightness": 91.26725260416667,
+        "saturation": 137.59120008680554,
+        "contrast": 74.04657481863974,
+        "flicker_to_prev": 2.0743815104166665
+      },
+      {
+        "frame_idx": 103,
+        "sample_pos": 10,
+        "sharpness": 8836.358529037163,
+        "brightness": 91.11794704861111,
+        "saturation": 136.76652018229166,
+        "contrast": 73.99816108602917,
+        "flicker_to_prev": 1.7131618923611112
+      },
+      {
+        "frame_idx": 114,
+        "sample_pos": 11,
+        "sharpness": 8798.41774510675,
+        "brightness": 91.32267252604167,
+        "saturation": 137.30631510416666,
+        "contrast": 74.12732737621718,
+        "flicker_to_prev": 1.9044325086805556
+      },
+      {
+        "frame_idx": 124,
+        "sample_pos": 12,
+        "sharpness": 8781.22468640407,
+        "brightness": 91.25832790798611,
+        "saturation": 137.017578125,
+        "contrast": 74.11194406935643,
+        "flicker_to_prev": 1.6084526909722223
+      },
+      {
+        "frame_idx": 135,
+        "sample_pos": 13,
+        "sharpness": 8697.225137142486,
+        "brightness": 91.33393012152777,
+        "saturation": 136.973388671875,
+        "contrast": 74.11743709939066,
+        "flicker_to_prev": 0.9132758246527778
+      },
+      {
+        "frame_idx": 145,
+        "sample_pos": 14,
+        "sharpness": 8747.772182594112,
+        "brightness": 91.25249565972223,
+        "saturation": 137.71676974826389,
+        "contrast": 73.99080670151187,
+        "flicker_to_prev": 1.3935818142361112
+      },
+      {
+        "frame_idx": 155,
+        "sample_pos": 15,
+        "sharpness": 8765.80768125955,
+        "brightness": 90.93861219618056,
+        "saturation": 136.83824327256946,
+        "contrast": 73.85157229072335,
+        "flicker_to_prev": 1.2022569444444444
+      },
+      {
+        "frame_idx": 166,
+        "sample_pos": 16,
+        "sharpness": 8759.473763412163,
+        "brightness": 91.32272677951389,
+        "saturation": 137.08270941840277,
+        "contrast": 74.08563675092334,
+        "flicker_to_prev": 2.0705023871527777
+      },
+      {
+        "frame_idx": 176,
+        "sample_pos": 17,
+        "sharpness": 8801.245928704739,
+        "brightness": 91.27479383680556,
+        "saturation": 137.096923828125,
+        "contrast": 74.13394335737628,
+        "flicker_to_prev": 1.9903157552083333
+      },
+      {
+        "frame_idx": 187,
+        "sample_pos": 18,
+        "sharpness": 8805.602399046038,
+        "brightness": 91.769287109375,
+        "saturation": 137.11507161458334,
+        "contrast": 74.47136487233723,
+        "flicker_to_prev": 2.2743598090277777
+      },
+      {
+        "frame_idx": 197,
+        "sample_pos": 19,
+        "sharpness": 8817.492397732205,
+        "brightness": 91.73187934027777,
+        "saturation": 136.65831163194446,
+        "contrast": 74.54273963299575,
+        "flicker_to_prev": 1.9269748263888888
+      },
+      {
+        "frame_idx": 207,
+        "sample_pos": 20,
+        "sharpness": 8807.845901194914,
+        "brightness": 92.14447699652777,
+        "saturation": 137.23296440972223,
+        "contrast": 74.78495732120317,
+        "flicker_to_prev": 2.0602213541666665
+      },
+      {
+        "frame_idx": 218,
+        "sample_pos": 21,
+        "sharpness": 8918.352177513232,
+        "brightness": 91.97219509548611,
+        "saturation": 136.54378255208334,
+        "contrast": 74.71228303111745,
+        "flicker_to_prev": 1.6208767361111112
+      },
+      {
+        "frame_idx": 228,
+        "sample_pos": 22,
+        "sharpness": 8917.18604913685,
+        "brightness": 91.99652777777777,
+        "saturation": 136.83721245659723,
+        "contrast": 74.73390351455667,
+        "flicker_to_prev": 1.1919216579861112
+      },
+      {
+        "frame_idx": 239,
+        "sample_pos": 23,
+        "sharpness": 8918.155475180825,
+        "brightness": 91.95713975694444,
+        "saturation": 136.80254448784723,
+        "contrast": 74.6875379657112,
+        "flicker_to_prev": 0.9523654513888888
+      }
+    ]
+  },
+  "t2vqa:07289_07.mp4": {
+    "dataset": "t2vqa",
+    "mos": 6.49,
+    "video_path": "<dataset_root>/07289_07.mp4",
+    "frames": [
+      {
+        "frame_idx": 0,
+        "sample_pos": 0,
+        "sharpness": 3.721696741051144,
+        "brightness": 227.06716579861111,
+        "saturation": 244.07774522569446,
+        "contrast": 5.399143925544376
+      },
+      {
+        "frame_idx": 1,
+        "sample_pos": 1,
+        "sharpness": 4.7242298825287525,
+        "brightness": 223.44742838541666,
+        "saturation": 237.17418077256946,
+        "contrast": 5.350689581521501,
+        "flicker_to_prev": 1.0694444444444444
+      },
+      {
+        "frame_idx": 2,
+        "sample_pos": 2,
+        "sharpness": 5.820823807775239,
+        "brightness": 222.4296875,
+        "saturation": 236.37334526909723,
+        "contrast": 5.347524060018893,
+        "flicker_to_prev": 0.8896484375
+      },
+      {
+        "frame_idx": 3,
+        "sample_pos": 3,
+        "sharpness": 6.914642244945337,
+        "brightness": 222.892578125,
+        "saturation": 236.58707682291666,
+        "contrast": 5.333814241661984,
+        "flicker_to_prev": 0.6788194444444444
+      },
+      {
+        "frame_idx": 4,
+        "sample_pos": 4,
+        "sharpness": 7.017071935865614,
+        "brightness": 221.61862521701389,
+        "saturation": 235.79584418402777,
+        "contrast": 5.3221467966789,
+        "flicker_to_prev": 0.9895290798611112
+      },
+      {
+        "frame_idx": 5,
+        "sample_pos": 5,
+        "sharpness": 7.214789778362085,
+        "brightness": 222.26307508680554,
+        "saturation": 235.38368055555554,
+        "contrast": 5.446095008206592,
+        "flicker_to_prev": 0.8474663628472222
+      },
+      {
+        "frame_idx": 6,
+        "sample_pos": 6,
+        "sharpness": 6.763947733390479,
+        "brightness": 222.43798828125,
+        "saturation": 235.17241753472223,
+        "contrast": 5.49595167715852,
+        "flicker_to_prev": 0.600830078125
+      },
+      {
+        "frame_idx": 7,
+        "sample_pos": 7,
+        "sharpness": 4.299079600675606,
+        "brightness": 226.10823567708334,
+        "saturation": 239.70993381076389,
+        "contrast": 5.505112622216111,
+        "flicker_to_prev": 1.9688585069444444
+      },
+      {
+        "frame_idx": 8,
+        "sample_pos": 8,
+        "sharpness": 5.539235161410438,
+        "brightness": 223.48429361979166,
+        "saturation": 236.17860243055554,
+        "contrast": 5.461227253197592,
+        "flicker_to_prev": 1.0371365017361112
+      },
+      {
+        "frame_idx": 9,
+        "sample_pos": 9,
+        "sharpness": 6.093213074737125,
+        "brightness": 222.61214192708334,
+        "saturation": 235.24671766493054,
+        "contrast": 5.352262026789454,
+        "flicker_to_prev": 0.804931640625
+      },
+      {
+        "frame_idx": 10,
+        "sample_pos": 10,
+        "sharpness": 6.198964813609183,
+        "brightness": 222.97981770833334,
+        "saturation": 235.34611002604166,
+        "contrast": 5.3502690295139805,
+        "flicker_to_prev": 0.5664605034722222
+      },
+      {
+        "frame_idx": 11,
+        "sample_pos": 11,
+        "sharpness": 6.777412113584118,
+        "brightness": 221.89507378472223,
+        "saturation": 235.30951605902777,
+        "contrast": 5.293915462873006,
+        "flicker_to_prev": 1.0395779079861112
+      },
+      {
+        "frame_idx": 12,
+        "sample_pos": 12,
+        "sharpness": 7.362241203402296,
+        "brightness": 222.336181640625,
+        "saturation": 235.44474283854166,
+        "contrast": 5.385106949857314,
+        "flicker_to_prev": 0.7317165798611112
+      },
+      {
+        "frame_idx": 13,
+        "sample_pos": 13,
+        "sharpness": 7.698247290687795,
+        "brightness": 222.44292534722223,
+        "saturation": 235.14122178819446,
+        "contrast": 5.41833897170465,
+        "flicker_to_prev": 0.6280381944444444
+      },
+      {
+        "frame_idx": 14,
+        "sample_pos": 14,
+        "sharpness": 7.219590360735669,
+        "brightness": 222.63251410590277,
+        "saturation": 234.92892795138889,
+        "contrast": 5.435170781842276,
+        "flicker_to_prev": 0.3937174479166667
+      },
+      {
+        "frame_idx": 15,
+        "sample_pos": 15,
+        "sharpness": 0.0,
+        "brightness": 126.0,
+        "saturation": 0.0,
+        "contrast": 0.0,
+        "flicker_to_prev": 38.033175998263886
+      }
+    ]
+  },
+  "t2vqa:03043_07.mp4": {
+    "dataset": "t2vqa",
+    "mos": 14.06,
+    "video_path": "<dataset_root>/03043_07.mp4",
+    "frames": [
+      {
+        "frame_idx": 0,
+        "sample_pos": 0,
+        "sharpness": 2.679459889729818,
+        "brightness": 108.24335394965277,
+        "saturation": 254.935791015625,
+        "contrast": 4.545260904460285
+      },
+      {
+        "frame_idx": 1,
+        "sample_pos": 1,
+        "sharpness": 4.850440230634478,
+        "brightness": 108.62396918402777,
+        "saturation": 254.81361219618054,
+        "contrast": 4.304816162377403,
+        "flicker_to_prev": 2.9182942708333335
+      },
+      {
+        "frame_idx": 2,
+        "sample_pos": 2,
+        "sharpness": 4.8893643477816635,
+        "brightness": 108.10150824652777,
+        "saturation": 254.83981662326389,
+        "contrast": 4.385597263459129,
+        "flicker_to_prev": 2.466769748263889
+      },
+      {
+        "frame_idx": 3,
+        "sample_pos": 3,
+        "sharpness": 5.768509881731905,
+        "brightness": 105.65614149305556,
+        "saturation": 254.64919704861111,
+        "contrast": 4.674103566472266,
+        "flicker_to_prev": 3.5233289930555554
+      },
+      {
+        "frame_idx": 4,
+        "sample_pos": 4,
+        "sharpness": 5.0291021598709955,
+        "brightness": 108.65993923611111,
+        "saturation": 254.78306749131946,
+        "contrast": 4.555772273454439,
+        "flicker_to_prev": 3.8495008680555554
+      },
+      {
+        "frame_idx": 5,
+        "sample_pos": 5,
+        "sharpness": 5.328845176431868,
+        "brightness": 111.26234266493056,
+        "saturation": 254.61924913194446,
+        "contrast": 4.763246211466932,
+        "flicker_to_prev": 3.8200141059027777
+      },
+      {
+        "frame_idx": 6,
+        "sample_pos": 6,
+        "sharpness": 71.0168163150917,
+        "brightness": 110.28301323784723,
+        "saturation": 254.09670681423611,
+        "contrast": 5.952428807015782,
+        "flicker_to_prev": 4.181315104166667
+      },
+      {
+        "frame_idx": 7,
+        "sample_pos": 7,
+        "sharpness": 22.194077579327573,
+        "brightness": 116.42312282986111,
+        "saturation": 254.75482855902777,
+        "contrast": 5.930893743629092,
+        "flicker_to_prev": 4.128282335069445
+      },
+      {
+        "frame_idx": 8,
+        "sample_pos": 8,
+        "sharpness": 24.676981430730702,
+        "brightness": 112.62440321180556,
+        "saturation": 254.40774197048611,
+        "contrast": 6.46580743742779,
+        "flicker_to_prev": 4.754909939236111
+      },
+      {
+        "frame_idx": 9,
+        "sample_pos": 9,
+        "sharpness": 20.13039101494683,
+        "brightness": 114.29709201388889,
+        "saturation": 254.09535047743054,
+        "contrast": 8.06731963566077,
+        "flicker_to_prev": 5.037706163194445
+      },
+      {
+        "frame_idx": 10,
+        "sample_pos": 10,
+        "sharpness": 20.737147955246915,
+        "brightness": 110.03976779513889,
+        "saturation": 254.45906575520834,
+        "contrast": 5.299745890016363,
+        "flicker_to_prev": 4.978542751736111
+      },
+      {
+        "frame_idx": 11,
+        "sample_pos": 11,
+        "sharpness": 79.79327561825882,
+        "brightness": 109.37535264756944,
+        "saturation": 254.29193793402777,
+        "contrast": 6.161635540199138,
+        "flicker_to_prev": 4.184787326388889
+      },
+      {
+        "frame_idx": 12,
+        "sample_pos": 12,
+        "sharpness": 33.22322702996525,
+        "brightness": 109.33284505208333,
+        "saturation": 254.53472222222223,
+        "contrast": 4.478953818916244,
+        "flicker_to_prev": 4.220621744791667
+      },
+      {
+        "frame_idx": 13,
+        "sample_pos": 13,
+        "sharpness": 108.97599675846689,
+        "brightness": 110.08650716145833,
+        "saturation": 254.16208224826389,
+        "contrast": 6.209763756767185,
+        "flicker_to_prev": 3.004150390625
+      },
+      {
+        "frame_idx": 14,
+        "sample_pos": 14,
+        "sharpness": 173.36231413520412,
+        "brightness": 108.60853407118056,
+        "saturation": 253.84101019965277,
+        "contrast": 6.728791206828557,
+        "flicker_to_prev": 3.6656629774305554
+      },
+      {
+        "frame_idx": 15,
+        "sample_pos": 15,
+        "sharpness": 0.005669481224483913,
+        "brightness": 126.00352647569444,
+        "saturation": 0.013400607638888888,
+        "contrast": 0.018775601432076933,
+        "flicker_to_prev": 82.20662434895833
+      }
+    ]
+  },
+  "t2vqa:02286_09.mp4": {
+    "dataset": "t2vqa",
+    "mos": 86.12,
+    "video_path": "<dataset_root>/02286_09.mp4",
+    "frames": [
+      {
+        "frame_idx": 0,
+        "sample_pos": 0,
+        "sharpness": 337.98071457942325,
+        "brightness": 131.77642144097223,
+        "saturation": 87.93801540798611,
+        "contrast": 55.921799781801134
+      },
+      {
+        "frame_idx": 1,
+        "sample_pos": 1,
+        "sharpness": 349.04317362440963,
+        "brightness": 131.75423177083334,
+        "saturation": 87.61165364583333,
+        "contrast": 55.99575513785397,
+        "flicker_to_prev": 3.2332356770833335
+      },
+      {
+        "frame_idx": 2,
+        "sample_pos": 2,
+        "sharpness": 344.22040434163296,
+        "brightness": 132.10007052951389,
+        "saturation": 87.66864691840277,
+        "contrast": 55.96258839297846,
+        "flicker_to_prev": 3.4313422309027777
+      },
+      {
+        "frame_idx": 3,
+        "sample_pos": 3,
+        "sharpness": 341.58748149798237,
+        "brightness": 131.87497287326389,
+        "saturation": 86.99351671006944,
+        "contrast": 56.11133921920328,
+        "flicker_to_prev": 4.605116102430555
+      },
+      {
+        "frame_idx": 4,
+        "sample_pos": 4,
+        "sharpness": 361.58229486147565,
+        "brightness": 131.99766710069446,
+        "saturation": 86.93296983506944,
+        "contrast": 56.421676353109255,
+        "flicker_to_prev": 5.065131293402778
+      },
+      {
+        "frame_idx": 5,
+        "sample_pos": 5,
+        "sharpness": 358.1334389926475,
+        "brightness": 131.55902777777777,
+        "saturation": 87.55620659722223,
+        "contrast": 56.99753001900497,
+        "flicker_to_prev": 3.6375325520833335
+      },
+      {
+        "frame_idx": 6,
+        "sample_pos": 6,
+        "sharpness": 361.62095978524957,
+        "brightness": 131.12055121527777,
+        "saturation": 87.47224934895833,
+        "contrast": 57.19344845991962,
+        "flicker_to_prev": 4.302083333333333
+      },
+      {
+        "frame_idx": 7,
+        "sample_pos": 7,
+        "sharpness": 392.13368907901975,
+        "brightness": 131.732421875,
+        "saturation": 87.41295030381944,
+        "contrast": 57.38940110515403,
+        "flicker_to_prev": 4.585530598958333
+      },
+      {
+        "frame_idx": 8,
+        "sample_pos": 8,
+        "sharpness": 398.8189660641882,
+        "brightness": 131.73139105902777,
+        "saturation": 87.64767795138889,
+        "contrast": 57.44203559507376,
+        "flicker_to_prev": 4.716037326388889
+      },
+      {
+        "frame_idx": 9,
+        "sample_pos": 9,
+        "sharpness": 371.8172767890824,
+        "brightness": 131.77433268229166,
+        "saturation": 88.53724500868056,
+        "contrast": 57.45644410593183,
+        "flicker_to_prev": 4.832655164930555
+      },
+      {
+        "frame_idx": 10,
+        "sample_pos": 10,
+        "sharpness": 346.8086318851989,
+        "brightness": 131.73944769965277,
+        "saturation": 88.83279079861111,
+        "contrast": 57.82296598786601,
+        "flicker_to_prev": 4.774685329861111
+      },
+      {
+        "frame_idx": 11,
+        "sample_pos": 11,
+        "sharpness": 375.70492744372217,
+        "brightness": 131.56770833333334,
+        "saturation": 88.17347547743056,
+        "contrast": 58.533847403682394,
+        "flicker_to_prev": 5.188395182291667
+      },
+      {
+        "frame_idx": 12,
+        "sample_pos": 12,
+        "sharpness": 368.41387089093524,
+        "brightness": 130.57584635416666,
+        "saturation": 87.96164279513889,
+        "contrast": 58.866281368212434,
+        "flicker_to_prev": 4.696912977430555
+      },
+      {
+        "frame_idx": 13,
+        "sample_pos": 13,
+        "sharpness": 383.61233181350025,
+        "brightness": 129.86640082465277,
+        "saturation": 87.690673828125,
+        "contrast": 59.36600278952223,
+        "flicker_to_prev": 6.929063585069445
+      },
+      {
+        "frame_idx": 14,
+        "sample_pos": 14,
+        "sharpness": 383.8112432662352,
+        "brightness": 128.01540798611111,
+        "saturation": 87.17192925347223,
+        "contrast": 59.99490843688414,
+        "flicker_to_prev": 6.240885416666667
+      },
+      {
+        "frame_idx": 15,
+        "sample_pos": 15,
+        "sharpness": 380.63117737166675,
+        "brightness": 128.70353190104166,
+        "saturation": 86.95708550347223,
+        "contrast": 59.627590366326565,
+        "flicker_to_prev": 5.524658203125
+      }
+    ]
+  },
+  "t2vqa:04824_09.mp4": {
+    "dataset": "t2vqa",
+    "mos": 87.12,
+    "video_path": "<dataset_root>/04824_09.mp4",
+    "frames": [
+      {
+        "frame_idx": 0,
+        "sample_pos": 0,
+        "sharpness": 663.149355099525,
+        "brightness": 174.38704427083334,
+        "saturation": 109.86121961805556,
+        "contrast": 59.756931611037
+      },
+      {
+        "frame_idx": 1,
+        "sample_pos": 1,
+        "sharpness": 662.2264292652225,
+        "brightness": 174.24354383680554,
+        "saturation": 110.71270073784723,
+        "contrast": 59.83288906348631,
+        "flicker_to_prev": 6.524386935763889
+      },
+      {
+        "frame_idx": 2,
+        "sample_pos": 2,
+        "sharpness": 691.0389952365263,
+        "brightness": 173.97347005208334,
+        "saturation": 111.26665581597223,
+        "contrast": 60.257748684554706,
+        "flicker_to_prev": 7.025065104166667
+      },
+      {
+        "frame_idx": 3,
+        "sample_pos": 3,
+        "sharpness": 690.7476119730208,
+        "brightness": 173.25808376736111,
+        "saturation": 112.071533203125,
+        "contrast": 60.50141797643481,
+        "flicker_to_prev": 7.549018012152778
+      },
+      {
+        "frame_idx": 4,
+        "sample_pos": 4,
+        "sharpness": 686.2191152506405,
+        "brightness": 172.89656575520834,
+        "saturation": 112.30840386284723,
+        "contrast": 60.79914068241585,
+        "flicker_to_prev": 7.668348524305555
+      },
+      {
+        "frame_idx": 5,
+        "sample_pos": 5,
+        "sharpness": 699.7002453090232,
+        "brightness": 172.28903537326389,
+        "saturation": 112.68079969618056,
+        "contrast": 60.94080967811094,
+        "flicker_to_prev": 8.064751519097221
+      },
+      {
+        "frame_idx": 6,
+        "sample_pos": 6,
+        "sharpness": 693.2938746581843,
+        "brightness": 171.92792426215277,
+        "saturation": 112.79522026909723,
+        "contrast": 61.017674019868544,
+        "flicker_to_prev": 8.004448784722221
+      },
+      {
+        "frame_idx": 7,
+        "sample_pos": 7,
+        "sharpness": 695.1455592748559,
+        "brightness": 171.14903428819446,
+        "saturation": 113.04684787326389,
+        "contrast": 60.993339997664584,
+        "flicker_to_prev": 8.020670572916666
+      },
+      {
+        "frame_idx": 8,
+        "sample_pos": 8,
+        "sharpness": 708.3167650405271,
+        "brightness": 170.48912217881946,
+        "saturation": 113.53206380208333,
+        "contrast": 61.11582237653429,
+        "flicker_to_prev": 9.404106987847221
+      },
+      {
+        "frame_idx": 9,
+        "sample_pos": 9,
+        "sharpness": 716.9202384683821,
+        "brightness": 170.10677083333334,
+        "saturation": 114.73952907986111,
+        "contrast": 61.311037776081484,
+        "flicker_to_prev": 8.431884765625
+      },
+      {
+        "frame_idx": 10,
+        "sample_pos": 10,
+        "sharpness": 737.5561854213844,
+        "brightness": 169.68476019965277,
+        "saturation": 114.94989691840277,
+        "contrast": 61.35174294430133,
+        "flicker_to_prev": 7.844916449652778
+      },
+      {
+        "frame_idx": 11,
+        "sample_pos": 11,
+        "sharpness": 720.0828144874101,
+        "brightness": 169.10527886284723,
+        "saturation": 115.51014539930556,
+        "contrast": 61.357531592174325,
+        "flicker_to_prev": 8.080485026041666
+      },
+      {
+        "frame_idx": 12,
+        "sample_pos": 12,
+        "sharpness": 763.1619206063542,
+        "brightness": 168.60834418402777,
+        "saturation": 116.40839301215277,
+        "contrast": 61.44585592168771,
+        "flicker_to_prev": 9.328776041666666
+      },
+      {
+        "frame_idx": 13,
+        "sample_pos": 13,
+        "sharpness": 792.0362707508934,
+        "brightness": 168.45602756076389,
+        "saturation": 117.82126193576389,
+        "contrast": 61.65388895371398,
+        "flicker_to_prev": 8.749674479166666
+      },
+      {
+        "frame_idx": 14,
+        "sample_pos": 14,
+        "sharpness": 801.4544381204946,
+        "brightness": 168.325927734375,
+        "saturation": 118.91788736979167,
+        "contrast": 61.75090744816878,
+        "flicker_to_prev": 7.959662543402778
+      },
+      {
+        "frame_idx": 15,
+        "sample_pos": 15,
+        "sharpness": 817.1889199614525,
+        "brightness": 168.33395724826389,
+        "saturation": 119.24509006076389,
+        "contrast": 62.10154529310722,
+        "flicker_to_prev": 9.805257161458334
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "konvid_1k": {
+    "n": 392,
+    "metrics_used": [
+      "sharpness",
+      "brightness",
+      "saturation",
+      "contrast",
+      "flicker",
+      "flicker_var",
+      "motion_proxy"
+    ],
+    "best_single_metric": "brightness",
+    "best_single_rho": 0.4066609232739286,
+    "signed_rank_in_sample": 0.3137535594850591,
+    "signed_rank_cv_mean": 0.29890867797113285,
+    "signed_rank_cv_std": 0.08398584562947047,
+    "ridge_cv_mean": 0.5111833583261134,
+    "ridge_cv_std": 0.05751627240024225,
+    "signs": {
+      "sharpness": 1,
+      "brightness": 1,
+      "saturation": -1,
+      "contrast": 1,
+      "flicker": 1,
+      "flicker_var": 1,
+      "motion_proxy": 1
+    },
+    "improvement_over_best_single": -0.10775224530279576
+  },
+  "videofeedback": {
+    "n": 48,
+    "metrics_used": [
+      "sharpness",
+      "brightness",
+      "saturation",
+      "contrast",
+      "flicker",
+      "flicker_var",
+      "motion_proxy"
+    ],
+    "best_single_metric": "brightness",
+    "best_single_rho": -0.4021782670879609,
+    "signed_rank_in_sample": 0.49567462737996326,
+    "signed_rank_cv_mean": 0.43635983177430865,
+    "signed_rank_cv_std": 0.2867327245676178,
+    "ridge_cv_mean": 0.43105190763714213,
+    "ridge_cv_std": 0.3505115318592374,
+    "signs": {
+      "sharpness": 1,
+      "brightness": -1,
+      "saturation": 1,
+      "contrast": -1,
+      "flicker": -1,
+      "flicker_var": -1,
+      "motion_proxy": -1
+    },
+    "improvement_over_best_single": 0.034181564686347754
+  },
+  "t2vqa_db": {
+    "n": 422,
+    "metrics_used": [
+      "sharpness",
+      "brightness",
+      "saturation",
+      "contrast",
+      "flicker",
+      "flicker_var",
+      "motion_proxy",
+      "motion_var"
+    ],
+    "best_single_metric": "flicker",
+    "best_single_rho": -0.238293534846133,
+    "signed_rank_in_sample": 0.19129624410591772,
+    "signed_rank_cv_mean": 0.18575824459439874,
+    "signed_rank_cv_std": 0.07485060640837961,
+    "ridge_cv_mean": 0.2779246914598343,
+    "ridge_cv_std": 0.11109442481972442,
+    "signs": {
+      "sharpness": -1,
+      "brightness": -1,
+      "saturation": -1,
+      "contrast": -1,
+      "flicker": -1,
+      "flicker_var": 1,
+      "motion_proxy": -1,
+      "motion_var": 1
+    },
+    "improvement_over_best_single": -0.05253529025173426
+  }
+}

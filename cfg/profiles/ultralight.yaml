@@ -1,0 +1,59 @@
+# =============================================================================
+# CineInfini — Ultralight profile (< 5s per video on CPU)
+# =============================================================================
+# Target: < 5 seconds total audit time on a CPU-only laptop, for 5-10s
+# generated videos. Designed to BEAT VideoScore (which requires loading
+# an 8B-parameter MLLM and ~30s of inference) on speed while preserving
+# the per-shot decomposition that VideoScore lacks.
+#
+# Use case: prompt-engineering loops, model-screening at scale,
+# CI gates on a generation service.
+#
+# How it's faster than VideoScore: no large model loaded, only 3
+# vectorised numpy/cv2 metrics, 4 frames per shot maximum.
+# =============================================================================
+
+extends: "../config.yaml"
+
+processing:
+  n_frames_per_shot: 4           # quarter of default
+  shot_threshold: 0.4            # only obvious shot boundaries
+  min_shot_duration_s: 1.5       # ignore short shots
+  max_duration_s: 30             # short videos only
+  num_workers: 2
+  batch_size: 4
+  use_amp: true
+  device: "auto"
+
+modules:
+  motion_coherence:        {enabled: true,  threshold: 35.0}
+  identity_consistency:    {enabled: true,  use_dtw: false, n_samples: 2}
+  semantic_consistency:    {enabled: true,  threshold: 0.18}
+  # Everything else off
+  background_consistency:  {enabled: false}
+  aesthetic_cinematic:     {enabled: false}
+  causal_reasoning:        {enabled: false}
+  temporal_signature:      {enabled: false}
+  physics_plausibility:    {enabled: false}
+  trustworthiness:         {enabled: false}
+  world_model_surprise:    {enabled: false}
+  creative_composition:    {enabled: false}
+  long_term_narrative:     {enabled: false}
+  subject_consistency_long: {enabled: false}
+  benchmark_forensic:      {enabled: false}
+  explainability:          {enabled: false}
+  benchmark_fusion:        {enabled: false}
+  origin_detection:        {enabled: false}
+  multi_modal_safety:      {enabled: false}
+  prompt_alignment_fine:   {enabled: false}
+  dover_score:             {enabled: false}
+  fastvqa_score:           {enabled: false}
+
+reporting:
+  formats: ["json"]              # JSON only — fastest
+  emit_per_shot: false
+  emit_videoscore_axes: true     # composite_score for ranking
+  emit_vbench_export: false
+
+logging:
+  level: "ERROR"

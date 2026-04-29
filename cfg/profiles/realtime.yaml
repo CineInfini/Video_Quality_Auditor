@@ -1,0 +1,59 @@
+# =============================================================================
+# CineInfini — Real-time profile
+# =============================================================================
+# Target: < 2 seconds of audit per minute of video on a CPU.
+# Use case: live monitoring of T2V generation, streaming QC, batch screening
+# of large corpora before deeper analysis.
+#
+# Trade-offs:
+#   - Only the 3 fast pure-CV modules run (motion + identity + semantic)
+#   - Few frames per shot (8 instead of 16)
+#   - No CLIP per-frame analysis on long sequences
+#   - No DOVER / FAST-VQA / VBench export (those are slow)
+#
+# Competitive target: matches FasterVQA-MT speed (14× real-time on Apple M1).
+# =============================================================================
+
+extends: "../config.yaml"
+
+processing:
+  n_frames_per_shot: 8          # default 16
+  shot_threshold: 0.3           # less aggressive shot detection
+  min_shot_duration_s: 1.0      # ignore micro-shots
+  max_duration_s: 600           # cap at 10 min input
+  num_workers: 4
+  batch_size: 8
+  use_amp: true                 # mixed precision for ~2× speedup on GPU
+  device: "auto"                # cpu OK; cuda preferred
+
+modules:
+  motion_coherence:        {enabled: true,  threshold: 30.0}
+  identity_consistency:    {enabled: true,  use_dtw: false, n_samples: 3}
+  semantic_consistency:    {enabled: true,  threshold: 0.20}
+  background_consistency:  {enabled: false}
+  aesthetic_cinematic:     {enabled: false}
+  causal_reasoning:        {enabled: false}
+  temporal_signature:      {enabled: false}
+  physics_plausibility:    {enabled: false}
+  trustworthiness:         {enabled: false}
+  world_model_surprise:    {enabled: false}
+  creative_composition:    {enabled: false}
+  long_term_narrative:     {enabled: false}
+  subject_consistency_long: {enabled: false}
+  benchmark_forensic:      {enabled: false}
+  explainability:          {enabled: false}
+  benchmark_fusion:        {enabled: false}
+  origin_detection:        {enabled: false}
+  multi_modal_safety:      {enabled: false}
+  prompt_alignment_fine:   {enabled: false}
+  dover_score:             {enabled: false}
+  fastvqa_score:           {enabled: false}
+
+reporting:
+  formats: ["json"]              # skip HTML/PDF rendering
+  emit_per_shot: false
+  emit_videoscore_axes: true     # always cheap to compute
+  emit_vbench_export: false
+
+logging:
+  level: "WARNING"

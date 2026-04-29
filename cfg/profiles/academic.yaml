@@ -1,0 +1,71 @@
+# =============================================================================
+# CineInfini — Academic profile (max precision)
+# =============================================================================
+# Target: highest possible measurement quality, no time budget.
+# Use case: paper benchmarks, calibration runs, leaderboard submissions.
+#
+# Activates ALL 21 modules including the cross-benchmark wrappers
+# (DOVER, FAST-VQA) and the 3 ML-required modules (origin_detection,
+# multi_modal_safety, prompt_alignment_fine). Modules without their
+# weights/dependencies will report `available: false` and be skipped
+# gracefully — the audit still completes.
+#
+# Competitive target: matches EvalCrafter's 17-metric coverage and
+# VBench's 16 dimensions in a single run.
+# =============================================================================
+
+extends: "../config.yaml"
+
+processing:
+  n_frames_per_shot: 32          # 2× default for finer temporal sampling
+  shot_threshold: 0.18           # detect more boundaries (catch micro-cuts)
+  min_shot_duration_s: 0.3
+  max_duration_s: null           # no cap — audit full video
+  num_workers: 8
+  batch_size: 16
+  use_amp: false                 # full FP32 for reproducibility
+  device: "auto"
+
+modules:
+  # --- Pure-CV (always enabled) ---
+  motion_coherence:        {enabled: true,  threshold: 25.0}
+  identity_consistency:    {enabled: true,  use_dtw: true, n_samples: 8}
+  semantic_consistency:    {enabled: true,  threshold: 0.25}
+  background_consistency:  {enabled: true,  threshold: 0.55, subsample: 3}
+  aesthetic_cinematic:     {enabled: true}
+  causal_reasoning:        {enabled: true}
+  temporal_signature:      {enabled: true,  max_frames: 64}
+  physics_plausibility:    {enabled: true}
+  trustworthiness:         {enabled: true,  n_samples: 8}
+  world_model_surprise:    {enabled: true}
+  creative_composition:    {enabled: true}
+  long_term_narrative:     {enabled: true,  segment_size: 32}
+  subject_consistency_long: {enabled: true,  window_size: 60}
+  benchmark_forensic:      {enabled: true,  compression_crfs: [23, 28, 35, 40]}
+  explainability:          {enabled: true,  n_permutations: 200}
+  benchmark_fusion:        {enabled: true}
+  # --- ML-required (graceful: report available=false if weights missing) ---
+  origin_detection:        {enabled: true}
+  multi_modal_safety:      {enabled: true}
+  prompt_alignment_fine:   {enabled: true,  model: "blip2"}
+  # --- Cross-benchmark wrappers (subsume DOVER + FAST-VQA) ---
+  dover_score:             {enabled: true}
+  fastvqa_score:           {enabled: true}
+
+thresholds:
+  videoscore_weights:
+    visual_quality:        1.0
+    temporal_consistency:  1.0
+    dynamic_degree:        0.5    # less reward for raw motion in academic mode
+    text_to_video_alignment: 1.5  # boost when prompts are provided
+    factual_consistency:   1.5
+
+reporting:
+  formats: ["json", "html", "pdf", "markdown"]
+  emit_per_shot: true
+  emit_videoscore_axes: true
+  emit_vbench_export: true
+  emit_explainability: true
+
+logging:
+  level: "INFO"

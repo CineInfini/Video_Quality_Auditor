@@ -1,0 +1,381 @@
+# CineInfini - Centralized configuration (production)
+
+paths:
+  models_dir: "~/.cineinfini/models"
+  reports_dir: "~/.cineinfini/reports"
+  benchmark_dir: "~/.cineinfini/benchmark"
+  test_videos_dir: "~/.cineinfini/test_videos"
+  datasets_dir: "~/.cineinfini/datasets"
+  cache_dir: "~/.cineinfini/cache"
+  logs_dir: "~/.cineinfini/logs"
+  temp_dir: "/tmp/cineinfini"
+  output_root: "~/.cineinfini/output"
+
+device:
+  gpu_device: "auto"               # auto | cuda | cpu
+  torch_dtype: "float16"           # float16 | float32
+  use_amp: true
+
+processing:
+  max_duration_s: 60
+  shot_threshold: 0.2
+  min_shot_duration_s: 0.5
+  downsample_to: [320, 180]
+  n_frames_per_shot: 16
+  frame_resize: [320, 180]
+  step: 2
+  adaptive_threshold: true
+  threshold_percentile: 85
+  num_workers: 4
+  parallel_shots: true
+  inter_shot_subsample: 5
+  narrative_coherence: true
+  compute_dtw_self: true
+  compute_dtw_inter: true
+  dtw_max_samples: 16
+  benchmark_mode: true
+  embedder: "arcface_onnx"
+  semantic_scorer: "clip"
+  hist_resize: [160, 90]
+  hist_bins_hue: 20
+  hist_bins_sat: 20
+
+thresholds:
+  motion: 25.0
+  ssim3d: 0.45
+  flicker: 0.10
+  identity_drift: 0.60
+  ssim_long_range: 0.45
+  clip_temp: 0.25
+  flicker_hf: 0.01
+  narrative_coherence: 0.70
+  temporal_coherence: 0.75
+  physics_overall: 0.65
+  aesthetic_score: 0.60
+  causal_violation: 0.35
+  trust_score: 0.70
+  background_ssim: 0.55
+
+# Model weights (downloaded once into paths.models_dir by `cineinfini bootstrap`)
+model_urls:
+  arcface:
+    url: "https://github.com/yakhyo/facial-analysis/releases/download/v0.0.1/w600k_r50.onnx"
+    filename: "arcface.onnx"
+    sha256: null
+    required: false
+  yunet:
+    url: "https://github.com/opencv/opencv_zoo/raw/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx"
+    filename: "yunet.onnx"
+    sha256: null
+    required: false
+  clip_vit_b32:
+    url: "https://openaipublic.azureedge.net/clip/models/40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af/ViT-B-32.pt"
+    filename: "ViT-B-32.pt"
+    sha256: "40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af"
+    required: false
+  dinov2_vitb14:
+    url: "https://dl.fbaipublicfiles.com/dinov2/dinov2_vitb14/dinov2_vitb14_pretrain.pth"
+    filename: "dinov2_vitb14.pth"
+    sha256: null
+    required: false
+
+# Royalty-free test videos (downloaded once into paths.test_videos_dir).
+# Every URL below points to a file UNDER 500 MB so they fit in a typical
+# upload limit and clone freshly even on consumer connections.
+test_videos:
+  bbb_sunflower:
+    url: "https://download.blender.org/demo/movies/BBB/bbb_sunflower_1080p_60fps_normal.mp4"
+    filename: "bbb_sunflower.mp4"
+    size_mb: 340
+    sha256: null
+    license: "CC-BY-3.0 (Blender Foundation)"
+    description: "Big Buck Bunny - Sunflower demo, 1080p 60fps, 10:34"
+    required: false
+  BBB:
+    url: "https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+    filename: "BBB.mp4"
+    size_mb: 50
+    sha256: null
+    license: "CC-BY-3.0 (Blender Foundation)"
+    description: "Big Buck Bunny - small 320x180 (smoke-test only)"
+    required: false
+  tears_of_steel:
+    url: "https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov"
+    filename: "tears_of_steel.mov"
+    size_mb: 365
+    sha256: null
+    license: "CC-BY-3.0 (Blender Foundation)"
+    description: "Tears of Steel - 720p MOV, 12:14"
+    required: false
+  sintel:
+    url: "https://archive.org/download/sintel-open-movie-by-blender/Sintel%20-%20Open%20Movie%20by%20Blender.mp4"
+    filename: "sintel.mp4"
+    size_mb: 224
+    sha256: null
+    license: "CC-BY-3.0 (Blender Foundation)"
+    description: "Sintel - full short film, 14:48 (Internet Archive mirror)"
+    required: false
+  sintel_trailer:
+    url: "https://download.blender.org/durian/trailer/sintel_trailer-1080p.mp4"
+    filename: "sintel_trailer.mp4"
+    size_mb: 50
+    sha256: null
+    license: "CC-BY-3.0 (Blender Foundation)"
+    description: "Sintel - 1080p trailer (smoke-test)"
+    required: false
+  elephants_dream:
+    url: "https://download.blender.org/ED/ED_1024.avi"
+    filename: "elephants_dream.avi"
+    size_mb: 410
+    sha256: null
+    license: "CC-BY-2.5 (Blender Foundation)"
+    description: "Elephants Dream - 1024p AVI, 10:54"
+    required: false
+
+# Validation / calibration datasets. Some have direct download URLs
+# (PUBLIC), others are gated behind a registration form. The
+# `cineinfini datasets fetch` CLI uses partial-ZIP extraction (HTTP Range)
+# to grab only matching files when `partial_patterns` is set.
+datasets:
+  bvi_hfr:
+    name: "BVI-HFR"
+    description: "High-Frame-Rate source video dataset (Bristol). PUBLIC, source for BVI-VFI."
+    purpose: "training_source"
+    url: "https://data.bris.ac.uk/datasets/tar/k8bfn0qsj9fs1rwnc2x75z6t7.zip"
+    homepage: "https://data.bris.ac.uk/data/dataset/k8bfn0qsj9fs1rwnc2x75z6t7"
+    license: "Academic use only (University of Bristol)"
+    size_gb: 40.0
+    format: "zip"
+    partial_patterns: ["*.mp4", "*.yuv", "*.txt", "*.csv", "README*"]
+    auto_downloadable: true
+    required: false
+
+  # bvi_vfi: removed in v0.4.8.9 (gated registration impedes reproducibility)
+  #          use t2vqa_db or videofeedback for calibration
+
+  vfips:
+    name: "VFIPS"
+    description: "Video Frame Interpolation Perceptual Similarity — 2AFC paired comparisons rather than scalar MOS. The right validation target for the temporal_smoothness_via_interp_artifacts module."
+    purpose: "calibration_vfi_artifacts"
+    homepage: "https://github.com/laulampaul/VFIPS"
+    paper: "Hou et al., 'VFIPS: Video Frame Interpolation Perceptual Similarity Metric', 2022"
+    license: "Research only — citation required"
+    label_format: "2AFC pairs"
+    size_gb: 5.0
+    auto_downloadable: false
+    required: false
+
+  t2vqa_db:
+    name: "T2VQA-DB"
+    description: "10K T2V-generated videos from 9 models with single MOS [1-100] from 27 annotators. Standard AIGC-VQA benchmark."
+    purpose: "calibration_primary"
+    homepage: "https://github.com/QMME/T2VQA"
+    paper: "Kou et al., ACM MM 2024 — https://arxiv.org/abs/2403.11956"
+    license: "Research only — citation required"
+    label_field: "mos_overall"
+    label_range: [1, 100]
+    n_videos: 10000
+    expected_spearman_target: 0.65
+    auto_downloadable: false
+    required: false
+
+  crave_db:
+    name: "CRAVE-DB"
+    description: "1228 next-gen AIGC videos (Sora/Hunyuan-era), MOS from 29 annotators. Harder than T2VQA-DB — newer artifact distributions."
+    purpose: "calibration_secondary"
+    homepage: "https://github.com/CRAVE-Bench/CRAVE"
+    paper: "Wen et al., 2025 — https://arxiv.org/abs/2502.04076"
+    license: "Research only"
+    n_videos: 1228
+    auto_downloadable: false
+    required: false
+
+  konvid_1k:
+    name: "KoNViD-1k"
+    description: "1200 natural in-the-wild videos with crowdsourced MOS. Standard NR-VQA sanity-check on natural content (not AIGC)."
+    purpose: "calibration_natural_videos"
+    homepage: "http://database.mmsp-kn.de/konvid-1k-database.html"
+    paper: "Hosu et al., QoMEX 2017"
+    license: "CC-BY-NC 4.0"
+    n_videos: 1200
+    expected_spearman_target: 0.75
+    auto_downloadable: false
+    required: false
+
+  lfw:
+    name: "LFW"
+    description: "Labelled Faces in the Wild — 13,233 faces, 5,749 identities"
+    purpose: "validation"
+    url: "http://vis-www.cs.umass.edu/lfw/lfw.tgz"
+    homepage: "http://vis-www.cs.umass.edu/lfw"
+    license: "Public domain (research use)"
+    size_gb: 0.17
+    format: "tgz"
+    auto_downloadable: true
+    required: false
+
+  videofeedback:
+    name: "TIGER-Lab/VideoFeedback"
+    description: "37,661 AIGC video samples (33.6K annotated + 4.08K real) with 5-dimension MOS [1-4] from 27 annotators. The standard validation set for VideoScore-style metrics. The frames + labels are 12.6 MB; the actual MP4 videos live at the videos_mirror URL and are downloaded per-sample on demand."
+    purpose: "calibration_primary"
+    homepage: "https://huggingface.co/datasets/TIGER-Lab/VideoFeedback"
+    videos_mirror: "https://huggingface.co/datasets/hexuan21/VideoFeedback-videos-mp4"
+    paper: "https://arxiv.org/abs/2406.15252"
+    license: "Apache-2.0"
+    size_mb: 12.6
+    n_samples: 37661
+    n_annotated: 33600
+    n_real: 4080
+    label_fields:
+      - "visual quality"
+      - "temporal consistency"
+      - "dynamic degree"
+      - "text-to-video alignment"
+      - "factual consistency"
+    label_range: [1, 4]
+    expected_spearman_target: 0.70
+    auto_downloadable: true
+    fetch_method: "huggingface_datasets"
+    fetch_command: "load_dataset('TIGER-Lab/VideoFeedback', name='annotated')"
+    required: false
+
+  vbench_eval:
+    name: "VBench eval suite"
+    description: "16-dimension AIGC benchmark with prompts + reference videos"
+    purpose: "benchmark"
+    url: "https://github.com/Vchitect/VBench/archive/refs/heads/master.zip"
+    homepage: "https://github.com/Vchitect/VBench"
+    paper: "https://arxiv.org/abs/2311.17982"
+    license: "Apache-2.0"
+    size_gb: 1.5
+    format: "zip"
+    partial_patterns: ["VBench-master/prompts/*", "VBench-master/*.json", "VBench-master/*.txt"]
+    auto_downloadable: true
+    required: false
+
+# Optional ML weights for cross-benchmark / opt-in modules. Direct downloads.
+# Each entry pins (url, github_repo, github_tag, asset_name) so that if the
+# hard-coded URL ever 404s, the GitHub-API resolver in core/bootstrap.py
+# can dynamically re-derive it from the tag.
+optional_models:
+  dover:
+    url: "https://github.com/QualityAssessment/DOVER/releases/download/v0.1.0/DOVER.pth"
+    filename: "DOVER.pth"
+    description: "DOVER aesthetic + technical UGC scorer (ICCV 2023)"
+    license: "MIT"
+    size_mb: 200
+    github_repo: "QualityAssessment/DOVER"
+    github_tag: "v0.1.0"
+    asset_name: "DOVER.pth"
+    required: false
+
+  dover_mobile:
+    url: "https://github.com/QualityAssessment/DOVER/releases/download/v0.5.0/DOVER-Mobile.pth"
+    filename: "DOVER-Mobile.pth"
+    description: "DOVER-Mobile (5.7x smaller, CPU-friendly)"
+    license: "MIT"
+    size_mb: 35
+    github_repo: "QualityAssessment/DOVER"
+    github_tag: "v0.5.0"
+    asset_name: "DOVER-Mobile.pth"
+    required: false
+
+  fastvqa:
+    url: "https://github.com/VQAssessment/FAST-VQA-and-FasterVQA/releases/download/v1.0.0-open-release-weights/fast-vqa_v0_3.pth"
+    filename: "fast-vqa_v0_3.pth"
+    description: "FAST-VQA base model (v0.3 paper weights, ECCV 2022)"
+    license: "Apache-2.0"
+    size_mb: 110
+    github_repo: "VQAssessment/FAST-VQA-and-FasterVQA"
+    github_tag: "v1.0.0-open-release-weights"
+    asset_name: "fast-vqa_v0_3.pth"
+    paper: "https://arxiv.org/abs/2207.02595"
+    required: false
+
+  fastvqa_m:
+    url: "https://github.com/VQAssessment/FAST-VQA-and-FasterVQA/releases/download/v1.0.0-open-release-weights/fast-vqa_m-v0_3.pth"
+    filename: "fast-vqa_m-v0_3.pth"
+    description: "FAST-VQA-M mobile model (v0.3 paper weights)"
+    license: "Apache-2.0"
+    size_mb: 50
+    github_repo: "VQAssessment/FAST-VQA-and-FasterVQA"
+    github_tag: "v1.0.0-open-release-weights"
+    asset_name: "fast-vqa_m-v0_3.pth"
+    paper: "https://arxiv.org/abs/2207.02595"
+    required: false
+
+modules:
+  motion_coherence: {enabled: true, threshold: 25.0}
+  temporal_smoothness_via_interp_artifacts:
+    enabled: false
+    lvar_dip_ratio: 0.75
+    judder_cov_normaliser: 1.5
+    description: "VFI artifact detector — ghosting/judder/interp-blur (validates against VFIPS)"
+  identity_consistency:
+    enabled: true
+    model: "arcface"
+    threshold: 0.60
+    n_samples: 5
+    use_dtw: true
+  semantic_consistency: {enabled: true, model: "clip", threshold: 0.25}
+  background_consistency:
+    enabled: false
+    method: "ssim"
+    threshold: 0.55
+    subsample: 5
+  origin_detection: {enabled: false, confidence_threshold: 0.65}
+  temporal_signature:
+    enabled: false
+    max_frames: 30
+    optical_flow_params: {pyr_scale: 0.5, levels: 3, winsize: 15, iterations: 3}
+  physics_plausibility: {enabled: false, min_contour_area: 300, iou_threshold: 0.3}
+  trustworthiness: {enabled: false, noise_level: 0.05, n_samples: 5}
+  explainability: {enabled: false, method: "proportional", n_permutations: 100}
+  benchmark_fusion: {enabled: false, vbench_path: null}
+  benchmark_forensic: {enabled: false, compression_crfs: [23, 28, 35]}
+  causal_reasoning: {enabled: false, gravity_penalty: 8.0, vertical_flow_threshold: 0.1}
+  long_term_narrative: {enabled: false, segment_size: 16, similarity_metric: "cosine"}
+  aesthetic_cinematic:
+    enabled: false
+    use_rule_of_thirds: true
+    color_harmony_weight: 0.4
+    contrast_weight: 0.3
+    composition_weight: 0.3
+  prompt_alignment_fine: {enabled: false, model: "blip2", vlm_device: "cpu"}
+  world_model_surprise: {enabled: false, use_divergence: true, surprise_threshold: 0.7}
+  subject_consistency_long: {enabled: false, window_size: 30, dtw_enabled: true}
+  multi_modal_safety: {enabled: false, nsfw_threshold: 0.8, violence_threshold: 0.7}
+  creative_composition: {enabled: false, rhythm_variance_weight: 0.5}
+
+reporting:
+  active_renderers: ["markdown", "json"]
+  figure_format: "png"
+  figure_dpi: 150
+  theme: "dark"
+  interactive: true
+  parallel_renderers: false
+  generate_markdown: true
+  generate_html: false
+  generate_plots: true
+  save_raw_data: true
+  include_shapley: false
+  dashboard_theme: "dark"
+  pdf_backend_priority: ["reportlab", "weasyprint", "fpdf2", "matplotlib"]
+  benchmark:
+    aggregation_method: "median"
+
+# Optional VFI artifact detector — disabled by default. Enable if you want
+# to validate against VFIPS or check footage for ghosting / judder /
+# interpolation blur (typical of RIFE / FILM / AdaCoF outputs).
+# Add to the modules: section above:
+#
+#   temporal_smoothness_via_interp_artifacts:
+#     enabled: true
+#     lvar_dip_ratio: 0.75          # dip threshold for interp-blur flag
+#     judder_cov_normaliser: 1.5    # CoV normaliser for judder score
+
+logging:
+  level: "INFO"
+  file_enabled: true
+  console_enabled: true
+  format: "%(asctime)s | %(levelname)-7s | %(name)s | %(message)s"

@@ -1,0 +1,57 @@
+# =============================================================================
+# CineInfini — Post-production profile (balanced)
+# =============================================================================
+# Target: ~5-10 seconds of audit per minute of video on GPU,
+# ~30-60s/min on CPU. The "default for serious users" profile.
+# Use case: studio QC of AI-generated shots, daily review pipelines,
+# editor-side audit before final delivery.
+#
+# Includes our differentiating modules (causal_reasoning, aesthetic,
+# subject_consistency_long) but skips the heavy ML-required ones to
+# keep dependency footprint minimal.
+# =============================================================================
+
+extends: "../config.yaml"
+
+processing:
+  n_frames_per_shot: 16          # default
+  shot_threshold: 0.2
+  min_shot_duration_s: 0.5
+  max_duration_s: null
+  num_workers: 4
+  batch_size: 8
+  use_amp: true
+  device: "auto"
+
+modules:
+  motion_coherence:        {enabled: true}
+  identity_consistency:    {enabled: true,  use_dtw: true}
+  semantic_consistency:    {enabled: true}
+  background_consistency:  {enabled: true}
+  aesthetic_cinematic:     {enabled: true}    # the "looks good?" gate
+  causal_reasoning:        {enabled: true}    # anti-gravity / unphysical motion
+  subject_consistency_long: {enabled: true}    # identity drift over long shots
+  long_term_narrative:     {enabled: true}
+  benchmark_fusion:        {enabled: true}    # VBench-dim summary
+  # --- Off by default in this profile ---
+  temporal_signature:      {enabled: false}
+  physics_plausibility:    {enabled: false}   # overlaps with causal_reasoning
+  trustworthiness:         {enabled: false}   # slow (re-runs SSIM with noise)
+  world_model_surprise:    {enabled: false}
+  creative_composition:    {enabled: false}
+  benchmark_forensic:      {enabled: false}   # very slow (multiple re-encodes)
+  explainability:          {enabled: false}
+  origin_detection:        {enabled: false}
+  multi_modal_safety:      {enabled: false}
+  prompt_alignment_fine:   {enabled: false}
+  dover_score:             {enabled: false}   # set true if weights present
+  fastvqa_score:           {enabled: false}   # set true if weights present
+
+reporting:
+  formats: ["json", "html"]
+  emit_per_shot: true
+  emit_videoscore_axes: true
+  emit_vbench_export: true
+
+logging:
+  level: "INFO"

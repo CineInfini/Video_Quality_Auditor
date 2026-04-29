@@ -1,0 +1,155 @@
+Metadata-Version: 2.4
+Name: cineinfini-audit
+Version: 0.4.10.1
+Summary: CineInfini: Adaptive Multi-Stage Video Quality Audit Pipeline
+Author-email: Salah-Eddine BENBRAHIM <benbrahim.salah.eddine.777@gmail.com>
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: opencv-python>=4.8
+Requires-Dist: numpy>=1.24
+Requires-Dist: matplotlib>=3.5
+Requires-Dist: pandas>=1.5
+Requires-Dist: scipy>=1.9
+Requires-Dist: scikit-image>=0.19
+Requires-Dist: Pillow>=9.5
+Requires-Dist: torch>=2.0
+Requires-Dist: onnxruntime>=1.14
+Requires-Dist: open-clip-torch>=2.20
+Requires-Dist: transformers>=4.30
+Requires-Dist: requests>=2.28
+Requires-Dist: click>=8.1
+Requires-Dist: markdown>=3.4
+Requires-Dist: weasyprint>=60
+Requires-Dist: plotly>=5.15
+Requires-Dist: PyYAML>=6.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: isort; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Provides-Extra: dtw
+Requires-Dist: dtaidistance; extra == "dtw"
+Requires-Dist: fastdtw; extra == "dtw"
+Dynamic: license-file
+
+# 🎬 CineInfini — Video Quality Auditor
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![PyPI](https://img.shields.io/pypi/v/cineinfini-audit.svg)](https://pypi.org/project/cineinfini-audit/)
+[![Tests](https://img.shields.io/badge/tests-272%20passing-brightgreen)](tests/)
+[![Modules](https://img.shields.io/badge/modules-21-blue)](docs/STATUS.md)
+
+**The only no-reference, modular, per-shot, multi-dimensional video auditor
+that runs in under 1 GB of weights and exposes every gate to the user.**
+
+CineInfini scores AI-generated and natural videos across 19 native metrics
+and produces output compatible with **VBench**, **VideoScore**, **DOVER**,
+and **FAST-VQA** — so you submit the same audit to any leaderboard.
+
+---
+
+## TL;DR
+
+```bash
+pip install cineinfini-audit
+cineinfini bootstrap                                       # Tier-1 weights (~835 MB)
+cineinfini audit my_video.mp4 --config cfg/profiles/postproduction.yaml
+cineinfini score    output/                                # → 5 axes + composite
+cineinfini export-vbench output/                           # → VBench JSON
+```
+
+---
+
+## What you get from one audit run
+
+A single `cineinfini audit` produces **all of these output formats simultaneously**:
+
+| Format | What | Compatible with |
+|---|---|---|
+| `data.json` | Native gates + per-shot ACCEPT/REVIEW/REJECT | — |
+| `dashboard.html` / `.pdf` / `.md` | Human-readable reports | — |
+| `*.vbench.json` | 16-dim VBench-leaderboard format | [Vchitect/VBench](https://github.com/Vchitect/VBench) |
+| 5-axis VideoScore + composite | Visual / Temporal / Dynamic / Alignment / Factual | [TIGER-Lab/VideoScore](https://huggingface.co/TIGER-Lab/VideoScore) |
+| `dover_aesthetic`, `dover_technical` | DOVER scores | [DOVER](https://github.com/QualityAssessment/DOVER) (when wired) |
+| `fastvqa_score` | FAST-VQA score | [FAST-VQA](https://github.com/VQAssessment/FAST-VQA-and-FasterVQA) (when wired) |
+
+## Performance profiles
+
+```bash
+cineinfini audit video.mp4 --config cfg/profiles/realtime.yaml         # < 2s/min CPU
+cineinfini audit video.mp4 --config cfg/profiles/ultralight.yaml       # < 5s total
+cineinfini audit video.mp4 --config cfg/profiles/postproduction.yaml   # default for serious users
+cineinfini audit video.mp4 --config cfg/profiles/academic.yaml         # all 21 modules
+cineinfini audit video.mp4 --config cfg/profiles/low_memory.yaml       # < 4 GB VRAM
+```
+
+See [`docs/USER_MANUAL.md`](docs/USER_MANUAL.md) for the full reference and
+[`docs/benchmarking/PROFILES.md`](docs/benchmarking/PROFILES.md) for performance.
+
+## How CineInfini compares
+
+| Capability | VMAF | DOVER | VideoScore | VBench | EvalCrafter | **CineInfini** |
+|---|---|---|---|---|---|---|
+| No-reference | ❌ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Per-shot diagnostic | ❌ | ❌ | ❌ | ⚙️ | ⚙️ | **✅** |
+| Disk footprint | 5 MB | 200 MB | 16 GB | 10+ GB | 30+ GB | **835 MB** |
+| Plug-in extensibility | ❌ | ❌ | ❌ | ❌ | ❌ | **✅** |
+| YAML-driven config | ❌ | ⚙️ | ❌ | ❌ | ❌ | **✅** |
+| Causal/physics modules | ❌ | ❌ | ⚙️ | VBench-2.0 only | ⚙️ | **✅** |
+
+Full comparison: [`docs/benchmarking/COMPARISON.md`](docs/benchmarking/COMPARISON.md).
+
+---
+
+## Installation
+
+```bash
+# Minimal — pure-CV modules only
+pip install cineinfini-audit
+
+# With ML modules (CLIP, ArcFace, DINOv2)
+cineinfini bootstrap                            # ~835 MB models
+
+# Full — including DOVER, FAST-VQA cross-benchmark wrappers
+pip install torch torchvision dover-vqa fast-vqa
+cineinfini bootstrap --include-optional         # +395 MB
+```
+
+Detailed guide: [`docs/INSTALLATION.md`](docs/INSTALLATION.md).
+
+---
+
+## Documentation index
+
+| Doc | What |
+|---|---|
+| **[`docs/USER_MANUAL.md`](docs/USER_MANUAL.md)** | Complete user manual — every CLI command, module, profile, output |
+| [`docs/QUICKSTART.md`](docs/QUICKSTART.md) | 5-minute getting started |
+| [`docs/INSTALLATION.md`](docs/INSTALLATION.md) | Install + competitor dependencies |
+| [`docs/STATUS.md`](docs/STATUS.md) | Exhaustive status: done, not done, what to install |
+| [`docs/MISSING_ASSETS.md`](docs/MISSING_ASSETS.md) | Tier 1/2/3 asset inventory + training recipes |
+| [`docs/benchmarking/COMPARISON.md`](docs/benchmarking/COMPARISON.md) | Head-to-head vs 12 industrial/academic tools |
+| [`docs/benchmarking/COMPETITORS.md`](docs/benchmarking/COMPETITORS.md) | One-liner install for each competitor |
+| [`docs/benchmarking/PROFILES.md`](docs/benchmarking/PROFILES.md) | Per-profile performance characteristics |
+| [`notebooks/`](notebooks/) | Runnable Jupyter notebooks |
+
+---
+
+## Citation
+
+```bibtex
+@software{cineinfini,
+  author  = {Benbrahim, Salah-Eddine},
+  title   = {CineInfini: Video Quality Auditor},
+  year    = {2026},
+  url     = {https://github.com/CineInfini/Video_Quality_Auditor},
+  version = {0.4.10.1}
+}
+```
+
+## License
+
+MIT. See [LICENSE](LICENSE).

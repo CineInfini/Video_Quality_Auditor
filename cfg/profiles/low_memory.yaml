@@ -1,0 +1,57 @@
+# =============================================================================
+# CineInfini — Low-memory profile
+# =============================================================================
+# Target: fit comfortably in 4 GB of VRAM (consumer GPUs, T4 / Colab free,
+# Apple M1/M2 unified memory).
+# Use case: developer laptops, free-tier Colab, edge inference, batch
+# audits on shared hardware.
+#
+# Same module coverage as post-production but with smaller batches and
+# CPU offload of the heaviest models when VRAM is tight.
+# =============================================================================
+
+extends: "../config.yaml"
+
+processing:
+  n_frames_per_shot: 12
+  shot_threshold: 0.22
+  min_shot_duration_s: 0.5
+  max_duration_s: 300
+  num_workers: 2                 # avoid memory pressure from concurrent decode
+  batch_size: 2                  # small batches
+  use_amp: true                  # FP16 halves VRAM
+  device: "auto"
+  # Let bootstrap load only models actually needed by enabled modules
+  lazy_load_models: true
+
+modules:
+  motion_coherence:        {enabled: true}
+  identity_consistency:    {enabled: true,  use_dtw: false}  # DTW is memory-hungry
+  semantic_consistency:    {enabled: true}
+  background_consistency:  {enabled: true,  subsample: 8}    # higher subsample
+  aesthetic_cinematic:     {enabled: true}
+  causal_reasoning:        {enabled: true}
+  long_term_narrative:     {enabled: false}                  # DINOv2 = 330MB
+  subject_consistency_long: {enabled: false}                  # DTW + ArcFace heavy
+  # Off
+  temporal_signature:      {enabled: false}
+  physics_plausibility:    {enabled: false}
+  trustworthiness:         {enabled: false}
+  world_model_surprise:    {enabled: false}
+  creative_composition:    {enabled: false}
+  benchmark_forensic:      {enabled: false}
+  explainability:          {enabled: false}
+  benchmark_fusion:        {enabled: true}  # cheap aggregation only
+  origin_detection:        {enabled: false}
+  multi_modal_safety:      {enabled: false}
+  prompt_alignment_fine:   {enabled: false}
+  dover_score:             {enabled: false}
+  fastvqa_score:           {enabled: false}
+
+reporting:
+  formats: ["json"]
+  emit_per_shot: true
+  emit_videoscore_axes: true
+
+logging:
+  level: "WARNING"
