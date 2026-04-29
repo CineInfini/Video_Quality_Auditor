@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import logging as _logging
 
-__version__ = "0.4.10.1"
+__version__ = "0.4.10.2"
 __author__ = "Salah-Eddine BENBRAHIM"
 __license__ = "MIT"
 

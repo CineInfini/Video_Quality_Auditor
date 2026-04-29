@@ -110,7 +110,7 @@ Detailed guide: [`docs/INSTALLATION.md`](docs/INSTALLATION.md).
   title   = {CineInfini: Video Quality Auditor},
   year    = {2026},
   url     = {https://github.com/CineInfini/Video_Quality_Auditor},
-  version = {0.4.10.1}
+  version = {0.4.10.2}
 }
 ```
 
