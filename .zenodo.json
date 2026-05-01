@@ -1,12 +1,57 @@
 {
-  "creators": [
-    {
-      "name": "BENBRAHIM, Salah-Eddine",
-      "orcid": "0009-0005-7050-4014"
-    }
-  ],
-  "title": "CineInfini: Adaptive Multi‑Stage Video Quality Audit Pipeline",
-  "description": "Open‑source pipeline for automatic video quality auditing with GPU acceleration, narrative coherence, and benchmark export.",
-  "license": "MIT",
-  "upload_type": "software"
+    "title": "CineInfini: Adaptive Multi-Stage Video Quality Audit Pipeline",
+    "creators": [
+        {
+            "name": "BENBRAHIM, Salah-Eddine",
+            "affiliation": "Independent Researcher",
+            "orcid": "0009-0005-7050-4014"
+        }
+    ],
+    "description": "An open-source, modular pipeline for automatic, explainable video quality auditing. Assesses AI-generated and natural videos across 21 native modules covering intra-shot metrics (motion coherence, SSIM, flicker, identity consistency), inter-shot coherence (structure, style, semantics), and narrative flow. Produces outputs compatible with VBench, VideoScore, DOVER, and FAST-VQA leaderboards.",
+    "license": "MIT",
+    "keywords": [
+        "video-quality",
+        "vqa",
+        "video-assessment",
+        "ai-generated-video",
+        "aigc",
+        "video-auditing",
+        "no-reference-vqa",
+        "optical-flow",
+        "ssim",
+        "clip",
+        "dinov2"
+    ],
+    "version": "0.4.15.0",
+    "language": "eng",
+    "access_right": "open",
+    "upload_type": "software",
+    "contributors": [],
+    "subjects": [
+        {
+            "term": "Computer Vision",
+            "identifier": "http://purl.org/cerif/frapo/ComputerVision"
+        },
+        {
+            "term": "Video Processing",
+            "identifier": "http://purl.org/cerif/frapo/VideoProcessing"
+        },
+        {
+            "term": "Quality Assessment",
+            "identifier": "http://purl.org/cerif/frapo/QualityAssessment"
+        }
+    ],
+    "references": [
+        "https://github.com/CineInfini/Video_Quality_Auditor",
+        "https://pypi.org/project/cineinfini-audit/"
+    ],
+    "related_identifiers": [
+        {
+            "relation": "isVersionOf",
+            "identifier": "10.5281/zenodo.19754084",
+            "resource_type": "software"
+        }
+    ],
+    "grants": [],
+    "imprint_publisher": "Zenodo"
 }
